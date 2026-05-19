@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InsightHub — Search Less. Know More.</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Roboto:wght@300;400;500&family=Roboto+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Reading progress -->
+    <div id="progress-bar"></div>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-box">
+            <div class="search-box-header">
+                <input type="text" id="overlaySearch" placeholder="Search articles, topics, authors…" autofocus>
+                <button class="search-close" onclick="closeSearch()">✕</button>
+            </div>
+            <div class="search-suggestions">
+                <div class="suggestion-item"><span class="suggestion-icon">🔥</span> AI & Machine Learning Trends</div>
+                <div class="suggestion-item"><span class="suggestion-icon">💡</span> Productivity Tips 2025</div>
+                <div class="suggestion-item"><span class="suggestion-icon">🌍</span> Climate Tech Innovations</div>
+                <div class="suggestion-item"><span class="suggestion-icon">📱</span> Mobile Development Best Practices
+                </div>
+                <div class="suggestion-item"><span class="suggestion-icon">🔐</span> Cybersecurity for Beginners</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─── NAVBAR ─── -->
+    <nav>
+        <div class="nav-inner">
+            <a href="#" class="logo">
+                <svg class="logo-icon" viewBox="0 0 36 36" fill="none">
+                    <circle cx="12" cy="12" r="9" fill="#4285F4" opacity="0.9" />
+                    <circle cx="24" cy="12" r="9" fill="#34A853" opacity="0.9" />
+                    <circle cx="12" cy="24" r="9" fill="#FBBC05" opacity="0.9" />
+                    <circle cx="24" cy="24" r="9" fill="#EA4335" opacity="0.9" />
+                    <circle cx="18" cy="18" r="6" fill="white" opacity="0.95" />
+                    <text x="18" y="22" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="900"
+                        font-size="9" fill="#4285F4">I</text>
+                </svg>
+                <div class="logo-text">
+                    <span>Insight</span><span>Hub</span>
+                </div>
+            </a>
+
+            <div class="nav-search">
+                <input type="text" placeholder="Search articles…" onclick="openSearch()">
+                <span class="search-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8" />
+                        <path d="m21 21-4.35-4.35" />
+                    </svg>
+                </span>
+            </div>
+
+            <div class="nav-links">
+                <a href="#" class="active" onclick="filterByCategory('all', event); return false;">Home</a>
+                <a href="#" onclick="filterByCategory('tech', event); return false;">Tech</a>
+                <a href="#" onclick="filterByCategory('science', event); return false;">Science</a>
+                <a href="#" onclick="filterByCategory('business', event); return false;">Business</a>
+                <a href="#" onclick="filterByCategory('design', event); return false;">Design</a>
+            </div>
+
+            <div class="nav-actions">
+                <button class="btn btn-primary" onclick="openSearch()">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8" />
+                        <path d="m21 21-4.35-4.35" />
+                    </svg>
+                    Search
+                </button>
+                <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="search-wrap">
+            <input type="text" placeholder="Search articles…" onclick="openSearch()">
+            <span class="search-icon-mob">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="m21 21-4.35-4.35" />
+                </svg>
+            </span>
+        </div>
+        <div class="mobile-links">
+            <a href="#" onclick="filterByCategory('all', event); return false;">Home</a>
+            <a href="#" onclick="filterByCategory('tech', event); return false;">Tech</a>
+            <a href="#" onclick="filterByCategory('science', event); return false;">Science</a>
+            <a href="#" onclick="filterByCategory('business', event); return false;">Business</a>
+            <a href="#" onclick="filterByCategory('design', event); return false;">Design</a>
+            <a href="#" onclick="filterByCategory('health', event); return false;">Health</a>
+            <a href="#" onclick="filterByCategory('culture', event); return false;">Culture</a>
+        </div>
+    </div>
+
+    <!-- ─── HERO ─── -->
+    <section class="hero">
+        <div class="hero-tag">✦ Weekly Edition</div>
+        <h1>Discover Ideas That <em>Matter</em></h1>
+        <p>Your daily source for cutting-edge insights in technology, science, business, and beyond. Curated by experts,
+            built for curious minds.</p>
+        <div class="hero-search">
+            <input type="text" placeholder="What do you want to explore today?" onclick="openSearch()">
+            <button onclick="openSearch()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="m21 21-4.35-4.35" />
+                </svg>
+            </button>
+        </div>
+        <div class="hero-stats">
+            <div class="stat">
+                <div class="stat-num">2.4<span>K</span></div>
+                <div class="stat-label">Articles Published</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">180<span>+</span></div>
+                <div class="stat-label">Expert Writers</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">920<span>K</span></div>
+                <div class="stat-label">Monthly Readers</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">48</div>
+                <div class="stat-label">Topic Categories</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── CATEGORIES ─── -->
+    <div class="categories">
+        <div class="cat-list">
+            <button class="cat-pill active" onclick="filterCat(this)"><span class="dot"></span>All</button>
+            <button class="cat-pill" onclick="filterCat(this)">🤖 AI & ML</button>
+            <button class="cat-pill" onclick="filterCat(this)">💻 Development</button>
+            <button class="cat-pill" onclick="filterCat(this)">🌱 Climate</button>
+            <button class="cat-pill" onclick="filterCat(this)">💰 Finance</button>
+            <button class="cat-pill" onclick="filterCat(this)">🎨 Design</button>
+            <button class="cat-pill" onclick="filterCat(this)">🔬 Science</button>
+            <button class="cat-pill" onclick="filterCat(this)">🧠 Psychology</button>
+            <button class="cat-pill" onclick="filterCat(this)">🚀 Startups</button>
+            <button class="cat-pill" onclick="filterCat(this)">❤️ Health</button>
+        </div>
+    </div>
+
+    <!-- ─── MAIN CONTENT ─── -->
+    <div class="main">
+        <!-- Primary Content -->
+        <div class="content-area">
+
+            <!-- Featured -->
+            <div class="section-header fade-up">
+                <div class="section-title">Featured Story</div>
+                <a href="#" class="see-all">Editor's Picks →</a>
+            </div>
+
+            <div class="featured-card fade-up fade-up-d1" data-category="tech" onclick="openBlogModal({
+                title: 'The Quiet Revolution: How Ambient AI Is Reshaping the Way We Think and Work',
+                tag: 'AI & Machine Learning',
+                tagClass: 'tag-blue',
+                readTime: '8 min read',
+                date: 'May 10, 2026',
+                author: 'Sofia Reyes',
+                role: 'Senior Tech Correspondent',
+                avatar: 'SR',
+                avatarStyle: 'background: linear-gradient(135deg, #4285F4, #34A853);',
+                content: `<p>Forget chatbots and dashboards. The next phase of AI isn\u0027t about asking questions—it\u0027s about systems that understand context before you even frame a thought.</p><p>From predictive interfaces to cognitive offloading, we explore how ambient intelligence is becoming the invisible infrastructure of modern life.</p><p><strong>What is Ambient AI?</strong></p><p>Ambient AI refers to intelligent systems that work in the background, anticipating user needs and providing assistance without explicit interaction. Unlike traditional AI interfaces that require user input, ambient AI operates contextually and proactively.</p><p><strong>Key Applications</strong></p><ul><li>Predictive text and autocomplete systems</li><li>Smart home automation</li><li>Healthcare monitoring systems</li><li>Personalized recommendation engines</li><li>Context-aware productivity tools</li></ul><p><strong>The Future of Work</strong></p><p>As ambient AI becomes more sophisticated, the way we work will fundamentally change. Instead of spending time searching for information or manually executing repetitive tasks, workers will focus on strategic thinking and creative problem-solving. AI will handle the cognitive heavy lifting, freeing humans to do what they do best: innovate and collaborate.</p><p>The transition won\u0027t be seamless, and there will be challenges around privacy, data security, and workforce adaptation. However, the potential benefits—increased productivity, better decision-making, and improved quality of life—make this transformation inevitable.</p>`
+            })" style="cursor: pointer;">
+                <div class="featured-img">
+                    <div class="featured-img-placeholder">🧠</div>
+                </div>
+                <div class="featured-body">
+                    <div class="featured-meta">
+                        <span class="tag tag-blue">AI & Machine Learning</span>
+                        <span class="meta-dot">•</span>
+                        <span class="meta-time">8 min read</span>
+                        <span class="meta-dot">•</span>
+                        <span class="meta-time">May 10, 2026</span>
+                    </div>
+                    <h2 class="featured-title">The Quiet Revolution: How Ambient AI Is Reshaping the Way We Think and
+                        Work</h2>
+                    <p class="featured-excerpt">Forget chatbots and dashboards. The next phase of AI isn't about asking
+                        questions—it's about systems that understand context before you even frame a thought. From
+                        predictive interfaces to cognitive offloading, we explore how ambient intelligence is becoming
+                        the invisible infrastructure of modern life.</p>
+                    <div class="featured-footer">
+                        <div class="author">
+                            <div class="avatar-placeholder"
+                                style="background: linear-gradient(135deg, #4285F4, #34A853);">SR</div>
+                            <div>
+                                <div class="author-name">Sofia Reyes</div>
+                                <div class="author-role">Senior Tech Correspondent</div>
+                            </div>
+                        </div>
+                        <a href="#" class="read-btn">Read Article →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Latest Posts -->
+            <div class="section-header fade-up fade-up-d2">
+                <div class="section-title">Latest Articles</div>
+                <a href="#" class="see-all">View all →</a>
+            </div>
+
+            <div class="post-grid" id="postGrid">
+
+                <div class="post-card fade-up fade-up-d1" data-category="business" onclick="openBlogModal({
+                    title: 'Direct Air Capture Plants Are Finally Becoming Cost-Effective',
+                    tag: 'Climate',
+                    tagClass: 'tag-green',
+                    readTime: '5 min',
+                    date: 'May 9',
+                    author: 'Amir Khan',
+                    role: 'Climate Correspondent',
+                    avatar: 'AK',
+                    avatarStyle: 'background: linear-gradient(135deg, #34A853, #0f9d58);',
+                    content: `<p>New modular designs are slashing the cost per ton of CO₂ removal, opening doors to large-scale carbon drawdown by 2028.</p><p><strong>The Cost Breakthrough</strong></p><p>For years, direct air capture (DAC) technology has been saddled with high costs—often $200-600 per ton of CO₂ removed. A new generation of modular DAC plants is bringing this down to under $100 per ton, making carbon removal economically viable at scale.</p><p><strong>How It Works</strong></p><p>These plants use advanced sorbent materials and optimized airflow designs to capture CO₂ directly from the atmosphere. The captured carbon can then be stored permanently underground or utilized in various industrial applications.</p><p><strong>Global Impact</strong></p><p>Leading companies are already deploying these plants across multiple continents. With carbon prices rising and corporate ESG commitments strengthening, the DAC industry is poised for exponential growth. Industry experts predict that by 2030, we\u0027ll have the capacity to remove over 1 billion tons of CO₂ annually from the atmosphere.</p><p>This technology represents a crucial weapon in our fight against climate change, offering hope that we can actively reduce atmospheric CO₂ levels while transitioning to renewable energy.</p>`
+                })" style="cursor: pointer;">
+                    <div class="post-img" style="background: linear-gradient(135deg, #e6f4ea, #d4edda);">🌱</div>
+                    <div class="post-body">
+                        <div class="post-meta">
+                            <span class="tag tag-green">Climate</span>
+                            <span class="meta-time">5 min</span>
+                        </div>
+                        <h3 class="post-title">Direct Air Capture Plants Are Finally Becoming Cost-Effective</h3>
+                        <p class="post-excerpt">New modular designs are slashing the cost per ton of CO₂ removal,
+                            opening doors to large-scale carbon drawdown by 2028.</p>
+                        <div class="post-footer">
+                            <div class="post-author-sm">
+                                <div class="avatar-placeholder"
+                                    style="background: linear-gradient(135deg, #34A853, #0f9d58);">AK</div>
+                                <div class="post-author-name">Amir Khan</div>
+                            </div>
+                            <div class="post-date">May 9</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post-card fade-up fade-up-d2" data-category="business" onclick="openBlogModal({
+                    title: 'Why Central Banks Are Quietly Building Digital Currency Infrastructure',
+                    tag: 'Finance',
+                    tagClass: 'tag-yellow',
+                    readTime: '6 min',
+                    date: 'May 8',
+                    author: 'Leila Morris',
+                    role: 'Finance Editor',
+                    avatar: 'LM',
+                    avatarStyle: 'background: linear-gradient(135deg, #FBBC05, #f29900);',
+                    content: `<p>More than 130 countries are now in advanced stages of CBDC development. Here's what that means for everyday banking and privacy.</p><p><strong>The CBDC Revolution</strong></p><p>Central Bank Digital Currencies (CBDCs) are digital versions of national fiat currencies, issued and regulated by central banks. Unlike cryptocurrencies, CBDCs are fully backed by governments and integrate into existing financial systems.</p><p><strong>Global Development</strong></p><p>The European Union, China, Singapore, and dozens of other nations have launched CBDC pilots. The U.S. Federal Reserve is intensifying its research and development efforts. This coordinated global shift signals a fundamental reimagining of how money moves.</p><p><strong>Implications for Consumers</strong></p><p>CBDCs offer several advantages: instant settlements, reduced transaction fees, improved financial inclusion, and enhanced transparency. However, they also raise privacy concerns as central banks would have unprecedented visibility into citizen financial transactions.</p><p><strong>The Timeline</strong></p><p>Most analysts expect widespread CBDC adoption within 5-10 years. This will fundamentally change banking, payment systems, and monetary policy transmission. Financial institutions are racing to prepare infrastructure for this transition.</p>`
+                })" style="cursor: pointer;">
+                    <div class="post-img" style="background: linear-gradient(135deg, #fef7e0, #fff3cd);">💰</div>
+                    <div class="post-body">
+                        <div class="post-meta">
+                            <span class="tag tag-yellow">Finance</span>
+                            <span class="meta-time">6 min</span>
+                        </div>
+                        <h3 class="post-title">Why Central Banks Are Quietly Building Digital Currency Infrastructure
+                        </h3>
+                        <p class="post-excerpt">More than 130 countries are now in advanced stages of CBDC development.
+                            Here's what that means for everyday banking and privacy.</p>
+                        <div class="post-footer">
+                            <div class="post-author-sm">
+                                <div class="avatar-placeholder"
+                                    style="background: linear-gradient(135deg, #FBBC05, #f29900);">LM</div>
+                                <div class="post-author-name">Leila Morris</div>
+                            </div>
+                            <div class="post-date">May 8</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post-card fade-up fade-up-d3" data-category="tech" onclick="openBlogModal({
+                    title: 'Post-Quantum Cryptography: Why Your Passwords Need an Upgrade Now',
+                    tag: 'Security',
+                    tagClass: 'tag-red',
+                    readTime: '4 min',
+                    date: 'May 7',
+                    author: 'David Torres',
+                    role: 'Security Analyst',
+                    avatar: 'DT',
+                    avatarStyle: 'background: linear-gradient(135deg, #EA4335, #c5221f);',
+                    content: `<p>NIST's finalized post-quantum standards are here. Security experts explain what companies must do before 2027 to stay protected.</p><p><strong>The Quantum Threat</strong></p><p>Quantum computers will eventually break current encryption standards. While full-scale quantum computers aren't here yet, the risk is real enough that NIST has spent years developing new cryptographic standards resistant to quantum attacks.</p><p><strong>NIST's Recommendations</strong></p><p>In August 2022, NIST finalized post-quantum cryptography standards that are now ready for deployment. These include ML-KEM for key encapsulation, ML-DSA for digital signatures, and SLH-DSA for hash-based signatures.</p><p><strong>Implementation Timeline</strong></p><p>Organizations should begin testing and transitioning to post-quantum cryptography immediately. The migration will take years, and early movers will have a significant security advantage. Critical infrastructure, financial institutions, and government agencies are prioritizing this transition.</p><p><strong>What You Need to Know</strong></p><p>If your organization handles sensitive data, you should assess your current cryptographic dependencies and create a transition plan. Post-quantum cryptography is no longer optional—it\u0027s a business imperative for cybersecurity.</p>`
+                })" style="cursor: pointer;">
+                    <div class="post-img" style="background: linear-gradient(135deg, #fce8e6, #fad2cf);">🔐</div>
+                    <div class="post-body">
+                        <div class="post-meta">
+                            <span class="tag tag-red">Security</span>
+                            <span class="meta-time">4 min</span>
+                        </div>
+                        <h3 class="post-title">Post-Quantum Cryptography: Why Your Passwords Need an Upgrade Now</h3>
+                        <p class="post-excerpt">NIST's finalized post-quantum standards are here. Security experts
+                            explain what companies must do before 2027 to stay protected.</p>
+                        <div class="post-footer">
+                            <div class="post-author-sm">
+                                <div class="avatar-placeholder"
+                                    style="background: linear-gradient(135deg, #EA4335, #c5221f);">DT</div>
+                                <div class="post-author-name">David Torres</div>
+                            </div>
+                            <div class="post-date">May 7</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post-card fade-up fade-up-d4" data-category="design" onclick="openBlogModal({
+                    title: 'The Spatial Web: Designing Interfaces for Mixed Reality Environments',
+                    tag: 'Design',
+                    tagClass: 'tag-blue',
+                    readTime: '7 min',
+                    date: 'May 6',
+                    author: 'Nina Park',
+                    role: 'Design Director',
+                    avatar: 'NP',
+                    avatarStyle: 'background: linear-gradient(135deg, #4285F4, #1a73e8);',
+                    content: `<p>As XR headsets hit mainstream adoption, UX designers face an entirely new canvas—one with depth, gesture, and ambient awareness.</p><p><strong>The Spatial Web Emerges</strong></p><p>The spatial web represents the convergence of physical and digital spaces. Unlike traditional 2D interfaces, spatial interfaces exist in three-dimensional environments, respond to gesture and movement, and integrate with real-world context.</p><p><strong>Design Principles</strong></p><p>Spatial UX requires rethinking fundamental design principles. Navigation, information hierarchy, and user feedback must work in 3D space. Designers must consider depth, perspective, real-world occlusion, and natural human gestures.</p><p><strong>Emerging Technologies</strong></p><p>Meta's Quest Pro, Apple's Vision Pro, and Microsoft's HoloLens 2 are leading the charge. These devices are shifting from niche gaming peripherals to mainstream productivity tools. Companies like Figma and Adobe are already building spatial design tools.</p><p><strong>The Future of Interaction</strong></p><p>Imagine designing documents in three dimensions, collaborating with teammates who appear as holograms, or controlling interfaces with natural hand gestures. This is no longer science fiction—it's the near future of work. Designers who master spatial UX will lead the next wave of digital innovation.</p>`
+                })" style="cursor: pointer;">
+                    <div class="post-img" style="background: linear-gradient(135deg, #e8f0fe, #d2e3fc);">🎨</div>
+                    <div class="post-body">
+                        <div class="post-meta">
+                            <span class="tag tag-blue">Design</span>
+                            <span class="meta-time">7 min</span>
+                        </div>
+                        <h3 class="post-title">The Spatial Web: Designing Interfaces for Mixed Reality Environments</h3>
+                        <p class="post-excerpt">As XR headsets hit mainstream adoption, UX designers face an entirely
+                            new canvas—one with depth, gesture, and ambient awareness.</p>
+                        <div class="post-footer">
+                            <div class="post-author-sm">
+                                <div class="avatar-placeholder"
+                                    style="background: linear-gradient(135deg, #4285F4, #1a73e8);">NP</div>
+                                <div class="post-author-name">Nina Park</div>
+                            </div>
+                            <div class="post-date">May 6</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post-card fade-up fade-up-d1" style="display:none;" data-extra data-category="science">
+                    <div class="post-img" style="background: linear-gradient(135deg, #f3e8ff, #e9d5ff);">🔬</div>
+                    <div class="post-body">
+                        <div class="post-meta">
+                            <span class="tag tag-blue">Science</span>
+                            <span class="meta-time">9 min</span>
+                        </div>
+                        <h3 class="post-title">CRISPR 3.0: Precision Gene Editing Without the Off-Target Errors</h3>
+                        <p class="post-excerpt">A new generation of base editors promises therapeutic gene editing with
+                            near-zero unintended mutations, potentially clearing FDA approval hurdles.</p>
+                        <div class="post-footer">
+                            <div class="post-author-sm">
+                                <div class="avatar-placeholder"
+                                    style="background: linear-gradient(135deg, #9333ea, #7c3aed);">KW</div>
+                                <div class="post-author-name">Kenji Wu</div>
+                            </div>
+                            <div class="post-date">May 5</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post-card fade-up fade-up-d2" style="display:none;" data-extra data-category="business">
+                    <div class="post-img" style="background: linear-gradient(135deg, #e0f2fe, #bae6fd);">🚀</div>
+                    <div class="post-body">
+                        <div class="post-meta">
+                            <span class="tag tag-blue">Startups</span>
+                            <span class="meta-time">5 min</span>
+                        </div>
+                        <h3 class="post-title">The $100B Moment: How Climate Tech Became the New SaaS Gold Rush</h3>
+                        <p class="post-excerpt">Venture capital has quietly pivoted. Climate startups are attracting the
+                            same valuations that once defined the cloud-software era.</p>
+                        <div class="post-footer">
+                            <div class="post-author-sm">
+                                <div class="avatar-placeholder"
+                                    style="background: linear-gradient(135deg, #0ea5e9, #0284c7);">RL</div>
+                                <div class="post-author-name">Rachel Lee</div>
+                            </div>
+                            <div class="post-date">May 4</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="load-more-wrap">
+                <button class="btn-load" id="loadMoreBtn" onclick="loadMore()">Load More Articles</button>
+            </div>
+
+        </div>
+
+        <!-- ─── SIDEBAR ─── -->
+        <aside class="sidebar">
+
+            <!-- Newsletter -->
+            <div class="widget newsletter-widget">
+                <div class="widget-title">📬 Stay in the Loop</div>
+                <p>Get the most insightful articles delivered to your inbox every Tuesday and Friday.</p>
+                <input type="email" placeholder="your@email.com">
+                <button class="btn-subscribe" onclick="handleSubscribe(this)">Subscribe Free →</button>
+            </div>
+
+            <!-- Trending -->
+            <div class="widget">
+                <div class="widget-title">🔥 Trending Now</div>
+                <ul class="trending-list">
+                    <li class="trending-item">
+                        <div class="trending-num">01</div>
+                        <div class="trending-content">
+                            <div class="trending-title">How GPT-5 Is Changing Scientific Research Forever</div>
+                            <div class="trending-meta">32K views · 3 days ago</div>
+                        </div>
+                    </li>
+                    <li class="trending-item">
+                        <div class="trending-num">02</div>
+                        <div class="trending-content">
+                            <div class="trending-title">The Psychology Behind Viral Misinformation</div>
+                            <div class="trending-meta">28K views · 5 days ago</div>
+                        </div>
+                    </li>
+                    <li class="trending-item">
+                        <div class="trending-num">03</div>
+                        <div class="trending-content">
+                            <div class="trending-title">Inside Tesla's New Battery Chemistry</div>
+                            <div class="trending-meta">21K views · 1 week ago</div>
+                        </div>
+                    </li>
+                    <li class="trending-item">
+                        <div class="trending-num">04</div>
+                        <div class="trending-content">
+                            <div class="trending-title">The Startup That Wants to Replace Your Doctor</div>
+                            <div class="trending-meta">18K views · 1 week ago</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Code snippet widget -->
+            <div class="widget">
+                <div class="widget-title">💻 Dev Tip of the Week</div>
+                <p style="font-size:0.82rem;color:#5f6368;margin-bottom:8px;">Debounce your search inputs for better UX:
+                </p>
+                <div class="code-block">
+                    <code>
+<span class="code-comment">// Debounce utility</span><br>
+<span class="code-keyword">const</span> debounce = (fn, ms) => {<br>
+&nbsp;&nbsp;<span class="code-keyword">let</span> timer;<br>
+&nbsp;&nbsp;<span class="code-keyword">return</span> (...args) => {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;clearTimeout(timer);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;timer = setTimeout(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;() => fn(...args), ms<br>
+&nbsp;&nbsp;&nbsp;&nbsp;);<br>
+&nbsp;&nbsp;};<br>
+};<br>
+<br>
+<span class="code-comment">// Usage</span><br>
+input.addEventListener(<br>
+&nbsp;&nbsp;<span class="code-string">'input'</span>,<br>
+&nbsp;&nbsp;debounce(search, <span class="code-number">300</span>)<br>
+);
+        </code>
+                </div>
+            </div>
+
+            <!-- Tags -->
+            <div class="widget">
+                <div class="widget-title">🏷️ Explore Topics</div>
+                <div class="tags-cloud">
+                    <span class="tag-cloud-item">Artificial Intelligence</span>
+                    <span class="tag-cloud-item">Web Dev</span>
+                    <span class="tag-cloud-item">Climate</span>
+                    <span class="tag-cloud-item">Crypto</span>
+                    <span class="tag-cloud-item">Startups</span>
+                    <span class="tag-cloud-item">UX Design</span>
+                    <span class="tag-cloud-item">Robotics</span>
+                    <span class="tag-cloud-item">Biotech</span>
+                    <span class="tag-cloud-item">Space</span>
+                    <span class="tag-cloud-item">Mental Health</span>
+                    <span class="tag-cloud-item">Quantum</span>
+                    <span class="tag-cloud-item">AR/VR</span>
+                </div>
+            </div>
+
+        </aside>
+    </div>
+
+    <!-- ─── FOOTER ─── -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo" style="text-decoration:none;">
+                        <svg width="32" height="32" viewBox="0 0 36 36" fill="none">
+                            <circle cx="12" cy="12" r="9" fill="#4285F4" opacity="0.85" />
+                            <circle cx="24" cy="12" r="9" fill="#34A853" opacity="0.85" />
+                            <circle cx="12" cy="24" r="9" fill="#FBBC05" opacity="0.85" />
+                            <circle cx="24" cy="24" r="9" fill="#EA4335" opacity="0.85" />
+                            <circle cx="18" cy="18" r="6" fill="white" opacity="0.9" />
+                            <text x="18" y="22" text-anchor="middle" font-family="Montserrat,sans-serif"
+                                font-weight="900" font-size="9" fill="#4285F4">I</text>
+                        </svg>
+                        <div class="logo-text">
+                            <span>Insight</span><span>Hub</span>
+                        </div>
+                    </a>
+                    <p>Search less. Know more. Your daily destination for ideas that shape the world—curated by experts,
+                        written for the curious.</p>
+                    <div class="social-links">
+                        <a class="social-link" href="#">X</a>
+                        <a class="social-link" href="#">in</a>
+                        <a class="social-link" href="#">📧</a>
+                        <a class="social-link" href="#">▶</a>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="footer-col-title">Topics</div>
+                    <ul class="footer-links">
+                        <li><a href="#">Artificial Intelligence</a></li>
+                        <li><a href="#">Climate & Environment</a></li>
+                        <li><a href="#">Business & Finance</a></li>
+                        <li><a href="#">Science & Health</a></li>
+                        <li><a href="#">Technology</a></li>
+                        <li><a href="#">Design & Culture</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <div class="footer-col-title">Company</div>
+                    <ul class="footer-links">
+                        <li><a href="#">About InsightHub</a></li>
+                        <li><a href="#">Our Writers</a></li>
+                        <li><a href="#">Advertise</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press Kit</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <div class="footer-col-title">Resources</div>
+                    <ul class="footer-links">
+                        <li><a href="#">Newsletter</a></li>
+                        <li><a href="#">Podcast</a></li>
+                        <li><a href="#">Weekly Digest</a></li>
+                        <li><a href="#">Submit a Story</a></li>
+                        <li><a href="#">RSS Feed</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>© 2026 InsightHub. All rights reserved.</div>
+                <div>
+                    <a href="#">Privacy Policy</a> &nbsp;·&nbsp;
+                    <a href="#">Terms of Service</a> &nbsp;·&nbsp;
+                    <a href="#">Cookie Settings</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Blog Modal -->
+    <div class="blog-modal" id="blogModal">
+        <div class="blog-modal-content">
+            <div class="blog-modal-header">
+                <h2 id="modalTitle" class="blog-modal-title">Blog Title</h2>
+                <button class="blog-modal-close" onclick="closeBlogModal()">✕</button>
+            </div>
+            <div class="blog-modal-meta">
+                <span id="modalTag" class="tag">Tag</span>
+                <span class="meta-dot">•</span>
+                <span id="modalReadTime">5 min read</span>
+                <span class="meta-dot">•</span>
+                <span id="modalDate">May 10, 2026</span>
+            </div>
+            <div class="blog-modal-body" id="modalBody">
+                <!-- Full blog content will be inserted here -->
+            </div>
+            <div class="blog-modal-footer">
+                <div class="blog-modal-author">
+                    <div id="modalAuthorAvatar" class="avatar-placeholder">AU</div>
+                    <div>
+                        <div id="modalAuthorName" class="author-name">Author Name</div>
+                        <div id="modalAuthorRole" class="author-role">Author Role</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to top -->
+    <button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15" />
+        </svg>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
