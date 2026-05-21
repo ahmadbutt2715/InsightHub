@@ -64,11 +64,10 @@
             </div>
 
             <div class="nav-links">
-                <a href="#" class="active" onclick="filterByCategory('all', event); return false;">Home</a>
-                <a href="#" onclick="filterByCategory('tech', event); return false;">Tech</a>
-                <a href="#" onclick="filterByCategory('science', event); return false;">Science</a>
-                <a href="#" onclick="filterByCategory('business', event); return false;">Business</a>
-                <a href="#" onclick="filterByCategory('design', event); return false;">Design</a>
+                <a href="#" class="active">Home</a>
+                <a href="#">About Us</a>
+                <a href="#">Services</a>
+                <a href="#">Contact Us</a>
             </div>
 
             <div class="nav-actions">
@@ -100,13 +99,10 @@
             </span>
         </div>
         <div class="mobile-links">
-            <a href="#" onclick="filterByCategory('all', event); return false;">Home</a>
-            <a href="#" onclick="filterByCategory('tech', event); return false;">Tech</a>
-            <a href="#" onclick="filterByCategory('science', event); return false;">Science</a>
-            <a href="#" onclick="filterByCategory('business', event); return false;">Business</a>
-            <a href="#" onclick="filterByCategory('design', event); return false;">Design</a>
-            <a href="#" onclick="filterByCategory('health', event); return false;">Health</a>
-            <a href="#" onclick="filterByCategory('culture', event); return false;">Culture</a>
+            <a href="#" class="active">Home</a>
+            <a href="#">About Us</a>
+            <a href="#">Services</a>
+            <a href="#">Contact Us</a>
         </div>
     </div>
 
@@ -149,16 +145,18 @@
     <!-- ─── CATEGORIES ─── -->
     <div class="categories">
         <div class="cat-list">
-            <button class="cat-pill active" onclick="filterCat(this)"><span class="dot"></span>All</button>
-            <button class="cat-pill" onclick="filterCat(this)">🤖 AI & ML</button>
-            <button class="cat-pill" onclick="filterCat(this)">💻 Development</button>
-            <button class="cat-pill" onclick="filterCat(this)">🌱 Climate</button>
-            <button class="cat-pill" onclick="filterCat(this)">💰 Finance</button>
-            <button class="cat-pill" onclick="filterCat(this)">🎨 Design</button>
-            <button class="cat-pill" onclick="filterCat(this)">🔬 Science</button>
-            <button class="cat-pill" onclick="filterCat(this)">🧠 Psychology</button>
-            <button class="cat-pill" onclick="filterCat(this)">🚀 Startups</button>
-            <button class="cat-pill" onclick="filterCat(this)">❤️ Health</button>
+            <button class="cat-pill active" data-filter="all" onclick="filterCat(this)"><span
+                    class="dot"></span>All</button>
+            <button class="cat-pill" data-filter="ai" onclick="filterCat(this)">🤖 AI & ML</button>
+            <button class="cat-pill" data-filter="dev" onclick="filterCat(this)">💻 Development</button>
+            <button class="cat-pill" data-filter="security" onclick="filterCat(this)">🔐 Security</button>
+            <button class="cat-pill" data-filter="climate" onclick="filterCat(this)">🌱 Climate</button>
+            <button class="cat-pill" data-filter="finance" onclick="filterCat(this)">💰 Finance</button>
+            <button class="cat-pill" data-filter="design" onclick="filterCat(this)">🎨 Design</button>
+            <button class="cat-pill" data-filter="science" onclick="filterCat(this)">🔬 Science</button>
+            <button class="cat-pill" data-filter="psychology" onclick="filterCat(this)">🧠 Psychology</button>
+            <button class="cat-pill" data-filter="startups" onclick="filterCat(this)">🚀 Startups</button>
+            <button class="cat-pill" data-filter="health" onclick="filterCat(this)">❤️ Health</button>
         </div>
     </div>
 
@@ -167,13 +165,13 @@
         <!-- Primary Content -->
         <div class="content-area">
 
-            <!-- Featured -->
+            <!-- Today's Blog -->
             <div class="section-header fade-up">
-                <div class="section-title">Featured Story</div>
+                <div class="section-title">Today's Blog</div>
                 <a href="#" class="see-all">Editor's Picks →</a>
             </div>
 
-            <div class="featured-card fade-up fade-up-d1" data-category="tech" onclick="openBlogModal({
+            <div class="featured-card fade-up fade-up-d1" data-category="ai" onclick="openBlogModal({
                 title: 'The Quiet Revolution: How Ambient AI Is Reshaping the Way We Think and Work',
                 tag: 'AI & Machine Learning',
                 tagClass: 'tag-blue',
@@ -224,7 +222,7 @@
 
             <div class="post-grid" id="postGrid">
 
-                <div class="post-card fade-up fade-up-d1" data-category="business" onclick="openBlogModal({
+                <div class="post-card fade-up fade-up-d1" data-category="climate" onclick="openBlogModal({
                     title: 'Direct Air Capture Plants Are Finally Becoming Cost-Effective',
                     tag: 'Climate',
                     tagClass: 'tag-green',
@@ -256,7 +254,7 @@
                     </div>
                 </div>
 
-                <div class="post-card fade-up fade-up-d2" data-category="business" onclick="openBlogModal({
+                <div class="post-card fade-up fade-up-d2" data-category="finance" onclick="openBlogModal({
                     title: 'Why Central Banks Are Quietly Building Digital Currency Infrastructure',
                     tag: 'Finance',
                     tagClass: 'tag-yellow',
@@ -289,7 +287,7 @@
                     </div>
                 </div>
 
-                <div class="post-card fade-up fade-up-d3" data-category="tech" onclick="openBlogModal({
+                <div class="post-card fade-up fade-up-d3" data-category="security" onclick="openBlogModal({
                     title: 'Post-Quantum Cryptography: Why Your Passwords Need an Upgrade Now',
                     tag: 'Security',
                     tagClass: 'tag-red',
@@ -353,7 +351,19 @@
                     </div>
                 </div>
 
-                <div class="post-card fade-up fade-up-d1" style="display:none;" data-extra data-category="science">
+                <div class="post-card fade-up fade-up-d1" style="display:none;" data-extra data-category="science"
+                    onclick="openBlogModal({
+                    title: 'CRISPR 3.0: Precision Gene Editing Without the Off-Target Errors',
+                    tag: 'Science',
+                    tagClass: 'tag-blue',
+                    readTime: '9 min',
+                    date: 'May 5',
+                    author: 'Kenji Wu',
+                    role: 'Science Editor',
+                    avatar: 'KW',
+                    avatarStyle: 'background: linear-gradient(135deg, #9333ea, #7c3aed);',
+                    content: `<p>A new generation of base editors promises therapeutic gene editing with near-zero unintended mutations, potentially clearing FDA approval hurdles.</p><p><strong>The Evolution of CRISPR</strong></p><p>While earlier versions of CRISPR acted like molecular scissors, CRISPR 3.0 functions more like a pencil, rewriting single letters of DNA without severing the double helix. This precision dramatically reduces the risk of dangerous off-target effects.</p><p><strong>Therapeutic Potential</strong></p><p>These ultra-precise editors are currently in trials for treating genetic blindness, sickle cell disease, and high cholesterol. With safety profiles vastly improved, researchers anticipate a surge of FDA approvals for personalized gene therapies by the end of the decade.</p>`
+                })" style="cursor: pointer;">
                     <div class="post-img" style="background: linear-gradient(135deg, #f3e8ff, #e9d5ff);">🔬</div>
                     <div class="post-body">
                         <div class="post-meta">
@@ -374,7 +384,19 @@
                     </div>
                 </div>
 
-                <div class="post-card fade-up fade-up-d2" style="display:none;" data-extra data-category="business">
+                <div class="post-card fade-up fade-up-d2" style="display:none;" data-extra data-category="startups"
+                    onclick="openBlogModal({
+                    title: 'The $100B Moment: How Climate Tech Became the New SaaS Gold Rush',
+                    tag: 'Startups',
+                    tagClass: 'tag-blue',
+                    readTime: '5 min',
+                    date: 'May 4',
+                    author: 'Rachel Lee',
+                    role: 'Venture Capital Analyst',
+                    avatar: 'RL',
+                    avatarStyle: 'background: linear-gradient(135deg, #0ea5e9, #0284c7);',
+                    content: `<p>Venture capital has quietly pivoted. Climate startups are attracting the same valuations that once defined the cloud-software era.</p><p><strong>A Massive Capital Shift</strong></p><p>In the past 24 months, climate tech funding has surged by over 400%. This is no longer a niche, impact-driven sector; it is seen as the largest economic opportunity since the dawn of the internet. From grid optimization software to novel battery chemistries, venture capital is aggressively funding the green transition.</p><p><strong>The Talent Migration</strong></p><p>It's not just money—it's talent. Top engineers and founders from traditional big tech companies are leaving in droves to tackle the climate crisis. This convergence of capital and top-tier talent is creating a powerful innovation engine that promises to reshape the global economy.</p>`
+                })" style="cursor: pointer;">
                     <div class="post-img" style="background: linear-gradient(135deg, #e0f2fe, #bae6fd);">🚀</div>
                     <div class="post-body">
                         <div class="post-meta">
@@ -391,6 +413,104 @@
                                 <div class="post-author-name">Rachel Lee</div>
                             </div>
                             <div class="post-date">May 4</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post-card fade-up fade-up-d3" style="display:none;" data-extra data-category="dev" onclick="openBlogModal({
+                    title: 'The Rise of Local-First Web Applications',
+                    tag: 'Development',
+                    tagClass: 'tag-blue',
+                    readTime: '6 min read',
+                    date: 'May 3',
+                    author: 'Alex Chen',
+                    role: 'Lead Developer',
+                    avatar: 'AC',
+                    avatarStyle: 'background: linear-gradient(135deg, #1a73e8, #0d47a1);',
+                    content: `<p>A major paradigm shift is happening in web development: local-first software. Unlike traditional cloud-centric applications, local-first apps store data primarily on the user\'s device and sync to the cloud in the background.</p><p><strong>Why Local-First?</strong></p><p>Local-first applications offer several profound benefits. First, they are extremely fast because data is accessed directly from local storage. Second, they work seamlessly offline. Third, they give users more control over their data privacy.</p><p><strong>The Technical Challenge</strong></p><p>Building local-first apps requires resolving complex data synchronization conflicts. Technologies like CRDTs (Conflict-free Replicated Data Types) and advanced local databases (like SQLite in the browser via WebAssembly) are making this architecture increasingly accessible.</p><p>As these tools mature, we can expect a new generation of web applications that rival the performance and reliability of native desktop software.</p>`
+                })" style="cursor: pointer;">
+                    <div class="post-img" style="background: linear-gradient(135deg, #e8f0fe, #c2e0ff);">💻</div>
+                    <div class="post-body">
+                        <div class="post-meta">
+                            <span class="tag tag-blue">Development</span>
+                            <span class="meta-time">6 min</span>
+                        </div>
+                        <h3 class="post-title">The Rise of Local-First Web Applications</h3>
+                        <p class="post-excerpt">How local-first architectures and CRDTs are bringing native-like speeds
+                            and offline capabilities to the web.</p>
+                        <div class="post-footer">
+                            <div class="post-author-sm">
+                                <div class="avatar-placeholder"
+                                    style="background: linear-gradient(135deg, #1a73e8, #0d47a1);">AC</div>
+                                <div class="post-author-name">Alex Chen</div>
+                            </div>
+                            <div class="post-date">May 3</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post-card fade-up fade-up-d4" style="display:none;" data-extra data-category="psychology"
+                    onclick="openBlogModal({
+                    title: 'The Psychology of Digital Minimalism',
+                    tag: 'Psychology',
+                    tagClass: 'tag-yellow',
+                    readTime: '8 min read',
+                    date: 'May 2',
+                    author: 'Dr. Elena Rostova',
+                    role: 'Cognitive Psychologist',
+                    avatar: 'ER',
+                    avatarStyle: 'background: linear-gradient(135deg, #f29900, #b06000);',
+                    content: `<p>In an era of constant connectivity, our attention has become the most contested commodity. Digital minimalism isn\'t just about screen time limits—it\'s a fundamental rethinking of how we interact with technology to reclaim our cognitive autonomy.</p><p><strong>The Attention Economy</strong></p><p>Modern applications are engineered using principles of operant conditioning. The unpredictable rewards of endless scrolling and notification pings trigger dopamine loops similar to slot machines. This constant cognitive fragmentation leads to increased anxiety and reduced deep-work capacity.</p><p><strong>Reclaiming Focus</strong></p><p>Research shows that intentionally restricting digital inputs can significantly lower baseline cortisol levels. Techniques like scheduled batch-processing of messages, removing algorithmic feeds, and establishing tech-free zones allow the brain\'s default mode network to recover.</p><p>Ultimately, digital minimalism isn\'t anti-technology. It\'s about utilizing technology on our own terms, shifting from passive consumption to intentional utility.</p>`
+                })" style="cursor: pointer;">
+                    <div class="post-img" style="background: linear-gradient(135deg, #fff8e1, #ffecb3);">🧠</div>
+                    <div class="post-body">
+                        <div class="post-meta">
+                            <span class="tag tag-yellow">Psychology</span>
+                            <span class="meta-time">8 min</span>
+                        </div>
+                        <h3 class="post-title">The Psychology of Digital Minimalism</h3>
+                        <p class="post-excerpt">Understanding how the attention economy affects our cognitive autonomy,
+                            and science-backed strategies to reclaim focus.</p>
+                        <div class="post-footer">
+                            <div class="post-author-sm">
+                                <div class="avatar-placeholder"
+                                    style="background: linear-gradient(135deg, #f29900, #b06000);">ER</div>
+                                <div class="post-author-name">Dr. Elena Rostova</div>
+                            </div>
+                            <div class="post-date">May 2</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post-card fade-up fade-up-d1" style="display:none;" data-extra data-category="health"
+                    onclick="openBlogModal({
+                    title: 'The Microbiome Connection: How Gut Health Shapes Mental Health',
+                    tag: 'Health',
+                    tagClass: 'tag-red',
+                    readTime: '7 min read',
+                    date: 'May 1',
+                    author: 'Sarah Jenkins',
+                    role: 'Health Science Journalist',
+                    avatar: 'SJ',
+                    avatarStyle: 'background: linear-gradient(135deg, #ea4335, #b31412);',
+                    content: `<p>The human gut contains trillions of microorganisms. For decades, we viewed them simply as digestive aids. Today, researchers are uncovering a profound connection between these microbes and our neurological well-being.</p><p><strong>The Gut-Brain Axis</strong></p><p>The gut and the brain communicate bidirectionally via the vagus nerve and biochemical signaling. Remarkably, the gut microbiota produces about 90% of the body\'s serotonin, a crucial neurotransmitter regulating mood, sleep, and emotion.</p><p><strong>Psychobiotics</strong></p><p>A new frontier in psychiatry involves \'psychobiotics\'—targeted interventions using specific strains of bacteria to treat mental health conditions like depression and anxiety. Early clinical trials are showing promising results that could revolutionize psychiatric care.</p><p><strong>Actionable Steps</strong></p><p>A diet rich in diverse, plant-based fibers, fermented foods, and limited processed sugars is the most effective way to cultivate a resilient microbiome. Nurturing your gut might just be the most impactful step you can take for your mental health.</p>`
+                })" style="cursor: pointer;">
+                    <div class="post-img" style="background: linear-gradient(135deg, #fce8e6, #f8bbd0);">❤️</div>
+                    <div class="post-body">
+                        <div class="post-meta">
+                            <span class="tag tag-red">Health</span>
+                            <span class="meta-time">7 min</span>
+                        </div>
+                        <h3 class="post-title">The Microbiome Connection: How Gut Health Shapes Mental Health</h3>
+                        <p class="post-excerpt">Emerging research reveals the profound bidirectional communication
+                            between our gut bacteria and neurological well-being.</p>
+                        <div class="post-footer">
+                            <div class="post-author-sm">
+                                <div class="avatar-placeholder"
+                                    style="background: linear-gradient(135deg, #ea4335, #b31412);">SJ</div>
+                                <div class="post-author-name">Sarah Jenkins</div>
+                            </div>
+                            <div class="post-date">May 1</div>
                         </div>
                     </div>
                 </div>
@@ -439,61 +559,10 @@
                             <div class="trending-meta">21K views · 1 week ago</div>
                         </div>
                     </li>
-                    <li class="trending-item">
-                        <div class="trending-num">04</div>
-                        <div class="trending-content">
-                            <div class="trending-title">The Startup That Wants to Replace Your Doctor</div>
-                            <div class="trending-meta">18K views · 1 week ago</div>
-                        </div>
-                    </li>
                 </ul>
             </div>
 
-            <!-- Code snippet widget -->
-            <div class="widget">
-                <div class="widget-title">💻 Dev Tip of the Week</div>
-                <p style="font-size:0.82rem;color:#5f6368;margin-bottom:8px;">Debounce your search inputs for better UX:
-                </p>
-                <div class="code-block">
-                    <code>
-<span class="code-comment">// Debounce utility</span><br>
-<span class="code-keyword">const</span> debounce = (fn, ms) => {<br>
-&nbsp;&nbsp;<span class="code-keyword">let</span> timer;<br>
-&nbsp;&nbsp;<span class="code-keyword">return</span> (...args) => {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;clearTimeout(timer);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;timer = setTimeout(<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;() => fn(...args), ms<br>
-&nbsp;&nbsp;&nbsp;&nbsp;);<br>
-&nbsp;&nbsp;};<br>
-};<br>
-<br>
-<span class="code-comment">// Usage</span><br>
-input.addEventListener(<br>
-&nbsp;&nbsp;<span class="code-string">'input'</span>,<br>
-&nbsp;&nbsp;debounce(search, <span class="code-number">300</span>)<br>
-);
-        </code>
-                </div>
-            </div>
 
-            <!-- Tags -->
-            <div class="widget">
-                <div class="widget-title">🏷️ Explore Topics</div>
-                <div class="tags-cloud">
-                    <span class="tag-cloud-item">Artificial Intelligence</span>
-                    <span class="tag-cloud-item">Web Dev</span>
-                    <span class="tag-cloud-item">Climate</span>
-                    <span class="tag-cloud-item">Crypto</span>
-                    <span class="tag-cloud-item">Startups</span>
-                    <span class="tag-cloud-item">UX Design</span>
-                    <span class="tag-cloud-item">Robotics</span>
-                    <span class="tag-cloud-item">Biotech</span>
-                    <span class="tag-cloud-item">Space</span>
-                    <span class="tag-cloud-item">Mental Health</span>
-                    <span class="tag-cloud-item">Quantum</span>
-                    <span class="tag-cloud-item">AR/VR</span>
-                </div>
-            </div>
 
         </aside>
     </div>

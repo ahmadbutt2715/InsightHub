@@ -20,7 +20,7 @@ function openBlogModal(blogData) {
     document.getElementById('modalAuthorRole').textContent = blogData.role;
     document.getElementById('modalAuthorAvatar').textContent = blogData.avatar;
     document.getElementById('modalAuthorAvatar').style.cssText = blogData.avatarStyle;
-    
+
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
 }
@@ -39,6 +39,31 @@ document.getElementById('blogModal')?.addEventListener('click', e => {
 // Close modal on Escape key
 document.addEventListener('keydown', e => {
     if (e.key === 'Escape') closeBlogModal();
+});
+
+// ── Navigation Links Active State
+document.querySelectorAll('.nav-links a, .mobile-links a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        if (this.getAttribute('href') === '#') {
+            e.preventDefault();
+        }
+        const text = this.textContent.trim();
+        document.querySelectorAll('.nav-links a, .mobile-links a').forEach(l => {
+            if (l.textContent.trim() === text) {
+                l.classList.add('active');
+            } else {
+                l.classList.remove('active');
+            }
+        });
+
+        // Close mobile menu on link click
+        const menu = document.getElementById('mobileMenu');
+        const btn = document.getElementById('hamburger');
+        if (menu && menu.classList.contains('open')) {
+            menu.classList.remove('open');
+            if (btn) btn.classList.remove('open');
+        }
+    });
 });
 
 // ── Hamburger
@@ -66,54 +91,46 @@ document.addEventListener('keydown', e => {
     if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); openSearch(); }
 });
 
-// ── Category Filter
-function filterByCategory(category, event) {
-    // Update desktop nav links active state
-    document.querySelectorAll('.nav-links a').forEach(link => link.classList.remove('active'));
-    document.querySelectorAll('.mobile-links a').forEach(link => link.classList.remove('active'));
-    
-    // Set active on clicked link
-    const clickedLink = event?.target?.closest('a');
-    if (clickedLink) clickedLink.classList.add('active');
-    
-    // Filter blog cards
-    const cards = document.querySelectorAll('[data-category]');
-    cards.forEach(card => {
-        if (category === 'all' || card.dataset.category === category) {
-            card.style.display = 'flex';
-            card.style.opacity = '0';
-            card.style.transition = 'opacity 0.3s ease';
-            setTimeout(() => {
-                card.style.opacity = '1';
-            }, 10);
-        } else {
-            card.style.display = 'none';
-        }
-    });
-    
-    // Scroll the categories section into view under the sticky header
-    const categoriesDiv = document.querySelector('.categories');
-    if (categoriesDiv) {
-        const navHeight = document.querySelector('nav')?.offsetHeight || 64;
-        const top = categoriesDiv.getBoundingClientRect().top + window.scrollY - navHeight - 12;
-        window.scrollTo({ top, behavior: 'smooth' });
-    }
-}
-
 function filterCat(btn) {
     document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
     btn.classList.add('active');
+    
+    const filter = btn.dataset.filter;
+    const cards = document.querySelectorAll('.featured-card, .post-card');
+    
+    cards.forEach(card => {
+        if (filter === 'all') {
+            if (card.hasAttribute('data-extra') && card.dataset.loaded !== 'true') {
+                card.style.display = 'none';
+            } else {
+                card.style.display = '';
+            }
+        } else {
+            if (card.dataset.category === filter) {
+                card.style.display = card.classList.contains('post-card') ? 'flex' : 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        }
+    });
+
+    const loadMoreWrap = document.querySelector('.load-more-wrap');
+    if (loadMoreWrap) {
+        loadMoreWrap.style.display = filter === 'all' ? '' : 'none';
+    }
 }
 
 // ── Load more
 
 function loadMore() {
-    const extras = document.querySelectorAll('[data-extra]');
+    const extras = document.querySelectorAll('[data-extra]:not([data-loaded="true"])');
     let shown = 0;
     extras.forEach(el => {
-        if (el.style.display === 'none') { el.style.display = 'flex'; shown++; }
+        el.style.display = 'flex';
+        el.dataset.loaded = 'true';
+        shown++;
     });
-    if (shown === 0 || document.querySelectorAll('[data-extra][style*="none"]').length === 0) {
+    if (shown === 0 || document.querySelectorAll('[data-extra]:not([data-loaded="true"])').length === 0) {
         document.getElementById('loadMoreBtn').textContent = 'You\'re all caught up! ✓';
         document.getElementById('loadMoreBtn').style.opacity = '0.5';
         document.getElementById('loadMoreBtn').style.cursor = 'default';
