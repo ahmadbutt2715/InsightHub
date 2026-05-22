@@ -38,15 +38,6 @@
     <nav>
         <div class="nav-inner">
             <a href="index.html" class="logo">
-                <svg class="logo-icon" viewBox="0 0 36 36" fill="none">
-                    <circle cx="12" cy="12" r="9" fill="#4285F4" opacity="0.9" />
-                    <circle cx="24" cy="12" r="9" fill="#34A853" opacity="0.9" />
-                    <circle cx="12" cy="24" r="9" fill="#FBBC05" opacity="0.9" />
-                    <circle cx="24" cy="24" r="9" fill="#EA4335" opacity="0.9" />
-                    <circle cx="18" cy="18" r="6" fill="white" opacity="0.95" />
-                    <text x="18" y="22" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="900"
-                        font-size="9" fill="#4285F4">I</text>
-                </svg>
                 <div class="logo-text">
                     <span>Insight</span><span>Hub</span>
                 </div>
@@ -68,16 +59,21 @@
                 </button>
             </div>
         </div>
-    </nav>
 
-    <!-- Mobile menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <div class="mobile-links">
-            <a href="index.html" class="active">Home</a>
-            <a href="about.html">About Me</a>
-            <a href="contact.html">Contact</a>
+        <!-- Mobile menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="about.html">About Me</a>
+                <a href="contact.html">Contact</a>
+                <div class="mobile-divider"></div>
+                <div class="mobile-auth-actions">
+                    <a href="#" class="mobile-btn-login" onclick="openAuthModal('login'); toggleMenu();">Login</a>
+                    <a href="#" class="mobile-btn-signup" onclick="openAuthModal('signup'); toggleMenu();">Sign Up</a>
+                </div>
+            </div>
         </div>
-    </div>
+    </nav>
 
     <!-- ─── HERO ─── -->
     <section class="hero">
@@ -449,15 +445,6 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="index.html" class="logo" style="text-decoration:none;">
-                        <svg width="32" height="32" viewBox="0 0 36 36" fill="none">
-                            <circle cx="12" cy="12" r="9" fill="#4285F4" opacity="0.85" />
-                            <circle cx="24" cy="12" r="9" fill="#34A853" opacity="0.85" />
-                            <circle cx="12" cy="24" r="9" fill="#FBBC05" opacity="0.85" />
-                            <circle cx="24" cy="24" r="9" fill="#EA4335" opacity="0.85" />
-                            <circle cx="18" cy="18" r="6" fill="white" opacity="0.9" />
-                            <text x="18" y="22" text-anchor="middle" font-family="Montserrat,sans-serif"
-                                font-weight="900" font-size="9" fill="#4285F4">I</text>
-                        </svg>
                         <div class="logo-text">
                             <span>Insight</span><span>Hub</span>
                         </div>
