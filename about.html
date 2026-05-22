@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me — InsightHub</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Roboto:wght@300;400;500&family=Roboto+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Reading progress -->
+    <div id="progress-bar"></div>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-box">
+            <div class="search-box-header">
+                <input type="text" id="overlaySearch" placeholder="Search articles, topics…" autofocus>
+                <button class="search-close" onclick="closeSearch()">✕</button>
+            </div>
+            <div class="search-suggestions">
+                <div class="suggestion-item"><span class="suggestion-icon">🔥</span> AI & Machine Learning Trends</div>
+                <div class="suggestion-item"><span class="suggestion-icon">💡</span> Productivity Tips 2025</div>
+                <div class="suggestion-item"><span class="suggestion-icon">🌍</span> Climate Tech Innovations</div>
+                <div class="suggestion-item"><span class="suggestion-icon">📱</span> Mobile Development Best Practices</div>
+                <div class="suggestion-item"><span class="suggestion-icon">🔐</span> Cybersecurity for Beginners</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─── NAVBAR ─── -->
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 36 36" fill="none">
+                    <circle cx="12" cy="12" r="9" fill="#4285F4" opacity="0.9" />
+                    <circle cx="24" cy="12" r="9" fill="#34A853" opacity="0.9" />
+                    <circle cx="12" cy="24" r="9" fill="#FBBC05" opacity="0.9" />
+                    <circle cx="24" cy="24" r="9" fill="#EA4335" opacity="0.9" />
+                    <circle cx="18" cy="18" r="6" fill="white" opacity="0.95" />
+                    <text x="18" y="22" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="900"
+                        font-size="9" fill="#4285F4">I</text>
+                </svg>
+                <div class="logo-text">
+                    <span>Insight</span><span>Hub</span>
+                </div>
+            </a>
+
+
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html" class="active">About Me</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <div class="nav-actions">
+                <a href="#" class="btn-auth-link" onclick="openAuthModal('login')">Login</a>
+                <a href="#" class="btn btn-primary btn-sm btn-signup" onclick="openAuthModal('signup')">Sign Up</a>
+                <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-links">
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">About Me</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+
+    <!-- ─── HERO ─── -->
+    <section class="about-hero">
+        <div class="hero-tag">✦ My Purpose</div>
+        <h1>Democratizing Ideas That <em>Shape</em> the Future</h1>
+        <p>InsightHub is a premier online publication dedicated to delivering deep tech analyses, scientific breakthroughs, financial insights, and design philosophies to curious minds across the globe.</p>
+    </section>
+
+    <!-- ─── MISSION & VISION ─── -->
+    <section class="about-grid-section">
+        <div class="mission-vision-grid">
+            <div class="mv-card fade-up fade-up-d1">
+                <div class="mv-icon">💡</div>
+                <h3>My Mission</h3>
+                <p>To cut through the noise of modern digital space by providing expert-driven, thoroughly-researched, and engaging content that enhances human understanding of technology, science, business, and daily productivity.</p>
+            </div>
+            <div class="mv-card fade-up fade-up-d2">
+                <div class="mv-icon">🚀</div>
+                <h3>My Vision</h3>
+                <p>To become the world's most trusted knowledge hub, empowering global citizens to learn quickly, discover breakthrough ideas, and make informed choices that contribute positively to the future of society.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── CORE VALUES ─── -->
+    <section class="about-grid-section" style="background: var(--white); border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0;">
+        <div class="section-head-center">
+            <h2>My Core Values</h2>
+            <p>These primary guidelines sit at the absolute heart of every single article, report, and editorial published on InsightHub.</p>
+        </div>
+        <div class="values-grid">
+            <div class="value-card fade-up fade-up-d1">
+                <div class="value-num">01</div>
+                <h3>Deep Inquiry</h3>
+                <p>I refuse to scratch the surface. My content is thoroughly analyzed, fact-checked, and contextually grounded by specialists.</p>
+            </div>
+            <div class="value-card fade-up fade-up-d2">
+                <div class="value-num">02</div>
+                <h3>Radical Integrity</h3>
+                <p>Total transparency, zero bias. I clearly state my sources, research methodologies, and respect readers' intellectual integrity.</p>
+            </div>
+            <div class="value-card fade-up fade-up-d3">
+                <div class="value-num">03</div>
+                <h3>Inclusive Access</h3>
+                <p>Knowledge is for everyone. I explain highly complex systems (like Quantum Computers or Gene Editing) in beautiful, digestible formats.</p>
+            </div>
+            <div class="value-card fade-up fade-up-d4">
+                <div class="value-num">04</div>
+                <h3>Design Excellence</h3>
+                <p>I believe aesthetic presentation is a vital pillar of learning. Clean typography and visuals make cognitive absorption seamless.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── MILESTONE TIMELINE ─── -->
+    <section class="about-grid-section">
+        <div class="section-head-center">
+            <h2>My Journey</h2>
+            <p>A look at how InsightHub grew from a small collaborative newsletter to a globally renowned publications hub.</p>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item fade-up fade-up-d1">
+                <div class="timeline-badge"></div>
+                <div class="timeline-content">
+                    <span class="timeline-year">2024</span>
+                    <h4>The Foundation</h4>
+                    <p>InsightHub was founded by Ahmad Butt in a small tech studio, with the simple goal of cataloging the accelerating trends of artificial intelligence and climate engineering for tech enthusiasts.</p>
+                </div>
+            </div>
+            <div class="timeline-item fade-up fade-up-d2">
+                <div class="timeline-badge"></div>
+                <div class="timeline-content">
+                    <span class="timeline-year">2025</span>
+                    <h4>Reaching 100K Readers</h4>
+                    <p>By bringing on industry experts as guest writers, InsightHub quickly expanded its subject coverage into psychology, cybersecurity, and finance, crossing its first major readership milestone.</p>
+                </div>
+            </div>
+            <div class="timeline-item fade-up fade-up-d3">
+                <div class="timeline-badge"></div>
+                <div class="timeline-content">
+                    <span class="timeline-year">Mid 2025</span>
+                    <h4>Aesthetic Platform Relaunch</h4>
+                    <p>InsightHub completely redesigned its entire digital interface, pioneering custom glassmorphism components, vibrant color-themed badges, and seamless search suggestions.</p>
+                </div>
+            </div>
+            <div class="timeline-item fade-up fade-up-d4">
+                <div class="timeline-badge"></div>
+                <div class="timeline-content">
+                    <span class="timeline-year">2026</span>
+                    <h4>Expanding to Spatial Horizons</h4>
+                    <p>InsightHub now hosts over 180 expert columnists worldwide and caters to 920,000 monthly readers. The platform remains dedicated to teaching post-quantum realities and ambient tech innovations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── MEET THE FOUNDER ─── -->
+    <section class="about-grid-section" style="background: var(--white); border-top: 1px solid #f0f0f0;">
+        <div class="section-head-center">
+            <h2>The Creator</h2>
+            <p>The vision and voice behind InsightHub, dedicated to writing, verifying, and publishing every single insight.</p>
+        </div>
+        <div style="max-width: 400px; margin: 0 auto;">
+            <div class="team-card fade-up fade-up-d1" style="border-bottom-color: var(--blue);">
+                <div class="team-avatar-container">
+                    <div class="team-avatar-large" style="background: linear-gradient(135deg, #4285F4, #34A853);">AB</div>
+                </div>
+                <div class="team-info">
+                    <div class="team-name">Ahmad Butt</div>
+                    <div class="team-role">Founder &amp; Sole Editor</div>
+                    <p class="team-bio">Software developer, designer, and writer who believes that access to structured, high-quality knowledge is the key to personal and societal growth.</p>
+                    <div class="team-socials">
+                        <a href="#" class="team-social-link">in</a>
+                        <a href="#" class="team-social-link">X</a>
+                        <a href="#" class="team-social-link">📧</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── FOOTER ─── -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" style="text-decoration:none;">
+                        <svg width="32" height="32" viewBox="0 0 36 36" fill="none">
+                            <circle cx="12" cy="12" r="9" fill="#4285F4" opacity="0.85" />
+                            <circle cx="24" cy="12" r="9" fill="#34A853" opacity="0.85" />
+                            <circle cx="12" cy="24" r="9" fill="#FBBC05" opacity="0.85" />
+                            <circle cx="24" cy="24" r="9" fill="#EA4335" opacity="0.85" />
+                            <circle cx="18" cy="18" r="6" fill="white" opacity="0.9" />
+                            <text x="18" y="22" text-anchor="middle" font-family="Montserrat,sans-serif"
+                                font-weight="900" font-size="9" fill="#4285F4">I</text>
+                        </svg>
+                        <div class="logo-text">
+                            <span>Insight</span><span>Hub</span>
+                        </div>
+                    </a>
+                    <p>Search less. Know more. Your daily destination for ideas that shape the world—curated by experts,
+                        written for the curious.</p>
+                    <div class="social-links">
+                        <a class="social-link" href="#">X</a>
+                        <a class="social-link" href="#">in</a>
+                        <a class="social-link" href="#">📧</a>
+                        <a class="social-link" href="#">▶</a>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="footer-col-title">Topics</div>
+                    <ul class="footer-links">
+                        <li><a href="#">Artificial Intelligence</a></li>
+                        <li><a href="#">Climate & Environment</a></li>
+                        <li><a href="#">Business & Finance</a></li>
+                        <li><a href="#">Science & Health</a></li>
+                        <li><a href="#">Technology</a></li>
+                        <li><a href="#">Design & Culture</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <div class="footer-col-title">Company</div>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Me</a></li>
+                        <li><a href="#">Advertise</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press Kit</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <div class="footer-col-title">Resources</div>
+                    <ul class="footer-links">
+                        <li><a href="#">Newsletter</a></li>
+                        <li><a href="#">Podcast</a></li>
+                        <li><a href="#">Weekly Digest</a></li>
+                        <li><a href="#">Submit a Story</a></li>
+                        <li><a href="#">RSS Feed</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>© 2026 InsightHub. All rights reserved.</div>
+                <div>
+                    <a href="#">Privacy Policy</a> &nbsp;·&nbsp;
+                    <a href="#">Terms of Service</a> &nbsp;·&nbsp;
+                    <a href="#">Cookie Settings</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Blog Modal -->
+    <div class="blog-modal" id="blogModal">
+        <div class="blog-modal-content">
+            <div class="blog-modal-header">
+                <h2 id="modalTitle" class="blog-modal-title">Blog Title</h2>
+                <button class="blog-modal-close" onclick="closeBlogModal()">✕</button>
+            </div>
+            <div class="blog-modal-meta">
+                <span id="modalTag" class="tag">Tag</span>
+                <span class="meta-dot">•</span>
+                <span id="modalReadTime">5 min read</span>
+                <span class="meta-dot">•</span>
+                <span id="modalDate">May 10, 2026</span>
+            </div>
+            <div class="blog-modal-body" id="modalBody">
+                <!-- Full blog content will be inserted here -->
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Back to top -->
+    <button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15" />
+        </svg>
+    </button>
+
+    <!-- Auth Modal -->
+    <div class="auth-modal" id="authModal">
+        <div class="auth-modal-content">
+            <button class="auth-modal-close" onclick="closeAuthModal()">✕</button>
+            
+            <div class="auth-tabs">
+                <button class="auth-tab active" id="tabLogin" onclick="switchAuthTab('login')">Sign In</button>
+                <button class="auth-tab" id="tabSignup" onclick="switchAuthTab('signup')">Create Account</button>
+            </div>
+            
+            <!-- Login Form -->
+            <form id="loginForm" class="auth-form active" onsubmit="handleAuthSubmit(event, 'login')">
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <div class="input-wrap">
+                        <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-10 11M22 2l-7 20-4-9-9-4Z"/></svg>
+                        <input type="email" id="loginEmail" placeholder="name@example.com" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="form-label-row">
+                        <label for="loginPassword">Password</label>
+                        <a href="#" class="form-forgot-link" onclick="alert('Password reset link sent!')">Forgot password?</a>
+                    </div>
+                    <div class="input-wrap">
+                        <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <input type="password" id="loginPassword" class="password-input" placeholder="Enter your password" required>
+                        <button type="button" class="password-toggle" onclick="togglePasswordVisibility('loginPassword', this)">
+                            <svg class="eye-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0z"/><circle cx="12" cy="12" r="3"/></svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-auth-submit">
+                    Sign In
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+            </form>
+            
+            <!-- Signup Form -->
+            <form id="signupForm" class="auth-form" onsubmit="handleAuthSubmit(event, 'signup')">
+                <div class="form-group">
+                    <label for="signupName">Full Name</label>
+                    <div class="input-wrap">
+                        <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        <input type="text" id="signupName" placeholder="Ahmad Butt" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="signupEmail">Email Address</label>
+                    <div class="input-wrap">
+                        <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-10 11M22 2l-7 20-4-9-9-4Z"/></svg>
+                        <input type="email" id="signupEmail" placeholder="name@example.com" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <div class="input-wrap">
+                        <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <input type="password" id="signupPassword" class="password-input" placeholder="Create a strong password" required>
+                        <button type="button" class="password-toggle" onclick="togglePasswordVisibility('signupPassword', this)">
+                            <svg class="eye-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0z"/><circle cx="12" cy="12" r="3"/></svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="form-checkbox">
+                    <input type="checkbox" id="signupTerms" required>
+                    <label for="signupTerms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-auth-submit">
+                    Create Account
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+            </form>
+            
+            <!-- Success Message Card -->
+            <div id="authSuccess" class="auth-success-card">
+                <div class="success-checkmark-wrapper">
+                    <svg class="success-checkmark" viewBox="0 0 52 52">
+                        <circle class="success-checkmark-circle" cx="26" cy="26" r="25" fill="none" />
+                        <path class="success-checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                    </svg>
+                </div>
+                <h3 class="auth-success-title" id="authSuccessTitle">Welcome Back!</h3>
+                <p class="auth-success-desc" id="authSuccessDesc">You have successfully signed in to InsightHub.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <!-- Bot Embeded -->
+    <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/2026/05/19/14/20260519140653-6FODSSMK.js" defer></script>
+
+</body>
+
+</html>

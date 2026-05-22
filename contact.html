@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — InsightHub</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Roboto:wght@300;400;500&family=Roboto+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Reading progress -->
+    <div id="progress-bar"></div>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-box">
+            <div class="search-box-header">
+                <input type="text" id="overlaySearch" placeholder="Search articles, topics…" autofocus>
+                <button class="search-close" onclick="closeSearch()">✕</button>
+            </div>
+            <div class="search-suggestions">
+                <div class="suggestion-item"><span class="suggestion-icon">🔥</span> AI & Machine Learning Trends</div>
+                <div class="suggestion-item"><span class="suggestion-icon">💡</span> Productivity Tips 2025</div>
+                <div class="suggestion-item"><span class="suggestion-icon">🌍</span> Climate Tech Innovations</div>
+                <div class="suggestion-item"><span class="suggestion-icon">📱</span> Mobile Development Best Practices</div>
+                <div class="suggestion-item"><span class="suggestion-icon">🔐</span> Cybersecurity for Beginners</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─── NAVBAR ─── -->
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 36 36" fill="none">
+                    <circle cx="12" cy="12" r="9" fill="#4285F4" opacity="0.9" />
+                    <circle cx="24" cy="12" r="9" fill="#34A853" opacity="0.9" />
+                    <circle cx="12" cy="24" r="9" fill="#FBBC05" opacity="0.9" />
+                    <circle cx="24" cy="24" r="9" fill="#EA4335" opacity="0.9" />
+                    <circle cx="18" cy="18" r="6" fill="white" opacity="0.95" />
+                    <text x="18" y="22" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="900"
+                        font-size="9" fill="#4285F4">I</text>
+                </svg>
+                <div class="logo-text">
+                    <span>Insight</span><span>Hub</span>
+                </div>
+            </a>
+
+
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Me</a>
+                <a href="contact.html" class="active">Contact</a>
+            </div>
+
+            <div class="nav-actions">
+                <a href="#" class="btn-auth-link" onclick="openAuthModal('login')">Login</a>
+                <a href="#" class="btn btn-primary btn-sm btn-signup" onclick="openAuthModal('signup')">Sign Up</a>
+                <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Me</a>
+            <a href="contact.html" class="active">Contact</a>
+        </div>
+    </div>
+
+    <!-- ─── HERO ─── -->
+    <section class="about-hero">
+        <div class="hero-tag">✦ Get In Touch</div>
+        <h1>Let's Start a <em>Conversation</em></h1>
+        <p>Whether you have a question about an article, want to collaborate on an editorial project, or just want to say hello—I'd love to hear from you.</p>
+    </section>
+
+    <!-- ─── CONTACT SECTION ─── -->
+    <section class="contact-grid-section">
+        <div class="contact-layout-grid">
+            
+            <!-- Left Info Column -->
+            <div class="contact-info-col">
+                <div class="contact-card fade-up fade-up-d1" style="border-top-color: var(--blue);">
+                    <div class="contact-icon">📧</div>
+                    <h3>Direct Email</h3>
+                    <p>For collaboration, article suggestions, or general feedback:</p>
+                    <a href="mailto:insighthub.hello@gmail.com" class="contact-link">insighthub.hello@gmail.com</a>
+                </div>
+
+                <div class="contact-card fade-up fade-up-d2" style="border-top-color: var(--green);">
+                    <div class="contact-icon">⚡</div>
+                    <h3>Typical Response</h3>
+                    <p>I read every single message personally and aim to respond as quickly as possible.</p>
+                    <span class="contact-stat">Within 24 Hours</span>
+                </div>
+
+                <div class="contact-card fade-up fade-up-d3" style="border-top-color: var(--yellow);">
+                    <div class="contact-icon">🌐</div>
+                    <h3>Connect Socially</h3>
+                    <p>Follow my work, check out my source code, or chat on social platforms:</p>
+                    <div class="contact-socials-grid">
+                        <a href="#" class="contact-social-btn lk">LinkedIn</a>
+                        <a href="#" class="contact-social-btn tw">Twitter / X</a>
+                        <a href="#" class="contact-social-btn gh">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Form Column -->
+            <div class="contact-form-container fade-up fade-up-d2">
+                <h3>Send Me a Message</h3>
+                <p>Fill out the form below, and I will get back to you shortly.</p>
+                
+                <form id="contactForm" onsubmit="handleContactSubmit(event)">
+                    <div class="form-group">
+                        <label for="contactName">Full Name</label>
+                        <input type="text" id="contactName" required placeholder="Your name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contactEmail">Email Address</label>
+                        <input type="email" id="contactEmail" required placeholder="you@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactSubject">Subject</label>
+                        <input type="text" id="contactSubject" required placeholder="Collaboration, article topic, question...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactMessage">Your Message</label>
+                        <textarea id="contactMessage" required rows="5" placeholder="Write your message here..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-submit">
+                        Send Message 
+                        <svg class="send-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ─── FOOTER ─── -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" style="text-decoration:none;">
+                        <svg width="32" height="32" viewBox="0 0 36 36" fill="none">
+                            <circle cx="12" cy="12" r="9" fill="#4285F4" opacity="0.85" />
+                            <circle cx="24" cy="12" r="9" fill="#34A853" opacity="0.85" />
+                            <circle cx="12" cy="24" r="9" fill="#FBBC05" opacity="0.85" />
+                            <circle cx="24" cy="24" r="9" fill="#EA4335" opacity="0.85" />
+                            <circle cx="18" cy="18" r="6" fill="white" opacity="0.9" />
+                            <text x="18" y="22" text-anchor="middle" font-family="Montserrat,sans-serif"
+                                font-weight="900" font-size="9" fill="#4285F4">I</text>
+                        </svg>
+                        <div class="logo-text">
+                            <span>Insight</span><span>Hub</span>
+                        </div>
+                    </a>
+                    <p>Search less. Know more. Your daily destination for ideas that shape the world—curated by experts,
+                        written for the curious.</p>
+                    <div class="social-links">
+                        <a class="social-link" href="#">X</a>
+                        <a class="social-link" href="#">in</a>
+                        <a class="social-link" href="#">📧</a>
+                        <a class="social-link" href="#">▶</a>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="footer-col-title">Topics</div>
+                    <ul class="footer-links">
+                        <li><a href="#">Artificial Intelligence</a></li>
+                        <li><a href="#">Climate & Environment</a></li>
+                        <li><a href="#">Business & Finance</a></li>
+                        <li><a href="#">Science & Health</a></li>
+                        <li><a href="#">Technology</a></li>
+                        <li><a href="#">Design & Culture</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <div class="footer-col-title">Company</div>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Me</a></li>
+                        <li><a href="#">Advertise</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press Kit</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <div class="footer-col-title">Resources</div>
+                    <ul class="footer-links">
+                        <li><a href="#">Newsletter</a></li>
+                        <li><a href="#">Podcast</a></li>
+                        <li><a href="#">Weekly Digest</a></li>
+                        <li><a href="#">Submit a Story</a></li>
+                        <li><a href="#">RSS Feed</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>© 2026 InsightHub. All rights reserved.</div>
+                <div>
+                    <a href="#">Privacy Policy</a> &nbsp;·&nbsp;
+                    <a href="#">Terms of Service</a> &nbsp;·&nbsp;
+                    <a href="#">Cookie Settings</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15" />
+        </svg>
+    </button>
+
+    <!-- Auth Modal -->
+    <div class="auth-modal" id="authModal">
+        <div class="auth-modal-content">
+            <button class="auth-modal-close" onclick="closeAuthModal()">✕</button>
+            
+            <div class="auth-tabs">
+                <button class="auth-tab active" id="tabLogin" onclick="switchAuthTab('login')">Sign In</button>
+                <button class="auth-tab" id="tabSignup" onclick="switchAuthTab('signup')">Create Account</button>
+            </div>
+            
+            <!-- Login Form -->
+            <form id="loginForm" class="auth-form active" onsubmit="handleAuthSubmit(event, 'login')">
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <div class="input-wrap">
+                        <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-10 11M22 2l-7 20-4-9-9-4Z"/></svg>
+                        <input type="email" id="loginEmail" placeholder="name@example.com" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="form-label-row">
+                        <label for="loginPassword">Password</label>
+                        <a href="#" class="form-forgot-link" onclick="alert('Password reset link sent!')">Forgot password?</a>
+                    </div>
+                    <div class="input-wrap">
+                        <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <input type="password" id="loginPassword" class="password-input" placeholder="Enter your password" required>
+                        <button type="button" class="password-toggle" onclick="togglePasswordVisibility('loginPassword', this)">
+                            <svg class="eye-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0z"/><circle cx="12" cy="12" r="3"/></svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-auth-submit">
+                    Sign In
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+            </form>
+            
+            <!-- Signup Form -->
+            <form id="signupForm" class="auth-form" onsubmit="handleAuthSubmit(event, 'signup')">
+                <div class="form-group">
+                    <label for="signupName">Full Name</label>
+                    <div class="input-wrap">
+                        <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        <input type="text" id="signupName" placeholder="Ahmad Butt" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="signupEmail">Email Address</label>
+                    <div class="input-wrap">
+                        <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-10 11M22 2l-7 20-4-9-9-4Z"/></svg>
+                        <input type="email" id="signupEmail" placeholder="name@example.com" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <div class="input-wrap">
+                        <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <input type="password" id="signupPassword" class="password-input" placeholder="Create a strong password" required>
+                        <button type="button" class="password-toggle" onclick="togglePasswordVisibility('signupPassword', this)">
+                            <svg class="eye-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0z"/><circle cx="12" cy="12" r="3"/></svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="form-checkbox">
+                    <input type="checkbox" id="signupTerms" required>
+                    <label for="signupTerms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-auth-submit">
+                    Create Account
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+            </form>
+            
+            <!-- Success Message Card -->
+            <div id="authSuccess" class="auth-success-card">
+                <div class="success-checkmark-wrapper">
+                    <svg class="success-checkmark" viewBox="0 0 52 52">
+                        <circle class="success-checkmark-circle" cx="26" cy="26" r="25" fill="none" />
+                        <path class="success-checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                    </svg>
+                </div>
+                <h3 class="auth-success-title" id="authSuccessTitle">Welcome Back!</h3>
+                <p class="auth-success-desc" id="authSuccessDesc">You have successfully signed in to InsightHub.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <!-- Bot Embeded -->
+    <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/2026/05/19/14/20260519140653-6FODSSMK.js" defer></script>
+
+</body>
+
+</html>

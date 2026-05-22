@@ -20,7 +20,7 @@
     <div class="search-overlay" id="searchOverlay">
         <div class="search-box">
             <div class="search-box-header">
-                <input type="text" id="overlaySearch" placeholder="Search articles, topics, authors…" autofocus>
+                <input type="text" id="overlaySearch" placeholder="Search articles, topics…" autofocus>
                 <button class="search-close" onclick="closeSearch()">✕</button>
             </div>
             <div class="search-suggestions">
@@ -37,7 +37,7 @@
     <!-- ─── NAVBAR ─── -->
     <nav>
         <div class="nav-inner">
-            <a href="#" class="logo">
+            <a href="index.html" class="logo">
                 <svg class="logo-icon" viewBox="0 0 36 36" fill="none">
                     <circle cx="12" cy="12" r="9" fill="#4285F4" opacity="0.9" />
                     <circle cx="24" cy="12" r="9" fill="#34A853" opacity="0.9" />
@@ -52,33 +52,17 @@
                 </div>
             </a>
 
-            <div class="nav-search">
-                <input type="text" placeholder="Search articles…" onclick="openSearch()">
-                <span class="search-icon">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="11" cy="11" r="8" />
-                        <path d="m21 21-4.35-4.35" />
-                    </svg>
-                </span>
-            </div>
+
 
             <div class="nav-links">
-                <a href="#" class="active">Home</a>
-                <a href="#">About Us</a>
-                <a href="#">Services</a>
-                <a href="#">Contact Us</a>
+                <a href="index.html" class="active">Home</a>
+                <a href="about.html">About Me</a>
+                <a href="contact.html">Contact</a>
             </div>
 
             <div class="nav-actions">
-                <button class="btn btn-primary" onclick="openSearch()">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="11" cy="11" r="8" />
-                        <path d="m21 21-4.35-4.35" />
-                    </svg>
-                    Search
-                </button>
+                <a href="#" class="btn-auth-link" onclick="openAuthModal('login')">Login</a>
+                <a href="#" class="btn btn-primary btn-sm btn-signup" onclick="openAuthModal('signup')">Sign Up</a>
                 <button class="hamburger" id="hamburger" onclick="toggleMenu()">
                     <span></span><span></span><span></span>
                 </button>
@@ -88,21 +72,10 @@
 
     <!-- Mobile menu -->
     <div class="mobile-menu" id="mobileMenu">
-        <div class="search-wrap">
-            <input type="text" placeholder="Search articles…" onclick="openSearch()">
-            <span class="search-icon-mob">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="11" cy="11" r="8" />
-                    <path d="m21 21-4.35-4.35" />
-                </svg>
-            </span>
-        </div>
         <div class="mobile-links">
-            <a href="#" class="active">Home</a>
-            <a href="#">About Us</a>
-            <a href="#">Services</a>
-            <a href="#">Contact Us</a>
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">About Me</a>
+            <a href="contact.html">Contact</a>
         </div>
     </div>
 
@@ -126,10 +99,6 @@
             <div class="stat">
                 <div class="stat-num">2.4<span>K</span></div>
                 <div class="stat-label">Articles Published</div>
-            </div>
-            <div class="stat">
-                <div class="stat-num">180<span>+</span></div>
-                <div class="stat-label">Expert Writers</div>
             </div>
             <div class="stat">
                 <div class="stat-num">920<span>K</span></div>
@@ -177,10 +146,6 @@
                 tagClass: 'tag-blue',
                 readTime: '8 min read',
                 date: 'May 10, 2026',
-                author: 'Sofia Reyes',
-                role: 'Senior Tech Correspondent',
-                avatar: 'SR',
-                avatarStyle: 'background: linear-gradient(135deg, #4285F4, #34A853);',
                 content: `<p>Forget chatbots and dashboards. The next phase of AI isn\u0027t about asking questions—it\u0027s about systems that understand context before you even frame a thought.</p><p>From predictive interfaces to cognitive offloading, we explore how ambient intelligence is becoming the invisible infrastructure of modern life.</p><p><strong>What is Ambient AI?</strong></p><p>Ambient AI refers to intelligent systems that work in the background, anticipating user needs and providing assistance without explicit interaction. Unlike traditional AI interfaces that require user input, ambient AI operates contextually and proactively.</p><p><strong>Key Applications</strong></p><ul><li>Predictive text and autocomplete systems</li><li>Smart home automation</li><li>Healthcare monitoring systems</li><li>Personalized recommendation engines</li><li>Context-aware productivity tools</li></ul><p><strong>The Future of Work</strong></p><p>As ambient AI becomes more sophisticated, the way we work will fundamentally change. Instead of spending time searching for information or manually executing repetitive tasks, workers will focus on strategic thinking and creative problem-solving. AI will handle the cognitive heavy lifting, freeing humans to do what they do best: innovate and collaborate.</p><p>The transition won\u0027t be seamless, and there will be challenges around privacy, data security, and workforce adaptation. However, the potential benefits—increased productivity, better decision-making, and improved quality of life—make this transformation inevitable.</p>`
             })" style="cursor: pointer;">
                 <div class="featured-img">
@@ -201,14 +166,6 @@
                         predictive interfaces to cognitive offloading, we explore how ambient intelligence is becoming
                         the invisible infrastructure of modern life.</p>
                     <div class="featured-footer">
-                        <div class="author">
-                            <div class="avatar-placeholder"
-                                style="background: linear-gradient(135deg, #4285F4, #34A853);">SR</div>
-                            <div>
-                                <div class="author-name">Sofia Reyes</div>
-                                <div class="author-role">Senior Tech Correspondent</div>
-                            </div>
-                        </div>
                         <a href="#" class="read-btn">Read Article →</a>
                     </div>
                 </div>
@@ -228,10 +185,6 @@
                     tagClass: 'tag-green',
                     readTime: '5 min',
                     date: 'May 9',
-                    author: 'Amir Khan',
-                    role: 'Climate Correspondent',
-                    avatar: 'AK',
-                    avatarStyle: 'background: linear-gradient(135deg, #34A853, #0f9d58);',
                     content: `<p>New modular designs are slashing the cost per ton of CO₂ removal, opening doors to large-scale carbon drawdown by 2028.</p><p><strong>The Cost Breakthrough</strong></p><p>For years, direct air capture (DAC) technology has been saddled with high costs—often $200-600 per ton of CO₂ removed. A new generation of modular DAC plants is bringing this down to under $100 per ton, making carbon removal economically viable at scale.</p><p><strong>How It Works</strong></p><p>These plants use advanced sorbent materials and optimized airflow designs to capture CO₂ directly from the atmosphere. The captured carbon can then be stored permanently underground or utilized in various industrial applications.</p><p><strong>Global Impact</strong></p><p>Leading companies are already deploying these plants across multiple continents. With carbon prices rising and corporate ESG commitments strengthening, the DAC industry is poised for exponential growth. Industry experts predict that by 2030, we\u0027ll have the capacity to remove over 1 billion tons of CO₂ annually from the atmosphere.</p><p>This technology represents a crucial weapon in our fight against climate change, offering hope that we can actively reduce atmospheric CO₂ levels while transitioning to renewable energy.</p>`
                 })" style="cursor: pointer;">
                     <div class="post-img" style="background: linear-gradient(135deg, #e6f4ea, #d4edda);">🌱</div>
@@ -244,11 +197,6 @@
                         <p class="post-excerpt">New modular designs are slashing the cost per ton of CO₂ removal,
                             opening doors to large-scale carbon drawdown by 2028.</p>
                         <div class="post-footer">
-                            <div class="post-author-sm">
-                                <div class="avatar-placeholder"
-                                    style="background: linear-gradient(135deg, #34A853, #0f9d58);">AK</div>
-                                <div class="post-author-name">Amir Khan</div>
-                            </div>
                             <div class="post-date">May 9</div>
                         </div>
                     </div>
@@ -260,10 +208,6 @@
                     tagClass: 'tag-yellow',
                     readTime: '6 min',
                     date: 'May 8',
-                    author: 'Leila Morris',
-                    role: 'Finance Editor',
-                    avatar: 'LM',
-                    avatarStyle: 'background: linear-gradient(135deg, #FBBC05, #f29900);',
                     content: `<p>More than 130 countries are now in advanced stages of CBDC development. Here's what that means for everyday banking and privacy.</p><p><strong>The CBDC Revolution</strong></p><p>Central Bank Digital Currencies (CBDCs) are digital versions of national fiat currencies, issued and regulated by central banks. Unlike cryptocurrencies, CBDCs are fully backed by governments and integrate into existing financial systems.</p><p><strong>Global Development</strong></p><p>The European Union, China, Singapore, and dozens of other nations have launched CBDC pilots. The U.S. Federal Reserve is intensifying its research and development efforts. This coordinated global shift signals a fundamental reimagining of how money moves.</p><p><strong>Implications for Consumers</strong></p><p>CBDCs offer several advantages: instant settlements, reduced transaction fees, improved financial inclusion, and enhanced transparency. However, they also raise privacy concerns as central banks would have unprecedented visibility into citizen financial transactions.</p><p><strong>The Timeline</strong></p><p>Most analysts expect widespread CBDC adoption within 5-10 years. This will fundamentally change banking, payment systems, and monetary policy transmission. Financial institutions are racing to prepare infrastructure for this transition.</p>`
                 })" style="cursor: pointer;">
                     <div class="post-img" style="background: linear-gradient(135deg, #fef7e0, #fff3cd);">💰</div>
@@ -277,11 +221,6 @@
                         <p class="post-excerpt">More than 130 countries are now in advanced stages of CBDC development.
                             Here's what that means for everyday banking and privacy.</p>
                         <div class="post-footer">
-                            <div class="post-author-sm">
-                                <div class="avatar-placeholder"
-                                    style="background: linear-gradient(135deg, #FBBC05, #f29900);">LM</div>
-                                <div class="post-author-name">Leila Morris</div>
-                            </div>
                             <div class="post-date">May 8</div>
                         </div>
                     </div>
@@ -293,10 +232,6 @@
                     tagClass: 'tag-red',
                     readTime: '4 min',
                     date: 'May 7',
-                    author: 'David Torres',
-                    role: 'Security Analyst',
-                    avatar: 'DT',
-                    avatarStyle: 'background: linear-gradient(135deg, #EA4335, #c5221f);',
                     content: `<p>NIST's finalized post-quantum standards are here. Security experts explain what companies must do before 2027 to stay protected.</p><p><strong>The Quantum Threat</strong></p><p>Quantum computers will eventually break current encryption standards. While full-scale quantum computers aren't here yet, the risk is real enough that NIST has spent years developing new cryptographic standards resistant to quantum attacks.</p><p><strong>NIST's Recommendations</strong></p><p>In August 2022, NIST finalized post-quantum cryptography standards that are now ready for deployment. These include ML-KEM for key encapsulation, ML-DSA for digital signatures, and SLH-DSA for hash-based signatures.</p><p><strong>Implementation Timeline</strong></p><p>Organizations should begin testing and transitioning to post-quantum cryptography immediately. The migration will take years, and early movers will have a significant security advantage. Critical infrastructure, financial institutions, and government agencies are prioritizing this transition.</p><p><strong>What You Need to Know</strong></p><p>If your organization handles sensitive data, you should assess your current cryptographic dependencies and create a transition plan. Post-quantum cryptography is no longer optional—it\u0027s a business imperative for cybersecurity.</p>`
                 })" style="cursor: pointer;">
                     <div class="post-img" style="background: linear-gradient(135deg, #fce8e6, #fad2cf);">🔐</div>
@@ -309,11 +244,6 @@
                         <p class="post-excerpt">NIST's finalized post-quantum standards are here. Security experts
                             explain what companies must do before 2027 to stay protected.</p>
                         <div class="post-footer">
-                            <div class="post-author-sm">
-                                <div class="avatar-placeholder"
-                                    style="background: linear-gradient(135deg, #EA4335, #c5221f);">DT</div>
-                                <div class="post-author-name">David Torres</div>
-                            </div>
                             <div class="post-date">May 7</div>
                         </div>
                     </div>
@@ -325,10 +255,6 @@
                     tagClass: 'tag-blue',
                     readTime: '7 min',
                     date: 'May 6',
-                    author: 'Nina Park',
-                    role: 'Design Director',
-                    avatar: 'NP',
-                    avatarStyle: 'background: linear-gradient(135deg, #4285F4, #1a73e8);',
                     content: `<p>As XR headsets hit mainstream adoption, UX designers face an entirely new canvas—one with depth, gesture, and ambient awareness.</p><p><strong>The Spatial Web Emerges</strong></p><p>The spatial web represents the convergence of physical and digital spaces. Unlike traditional 2D interfaces, spatial interfaces exist in three-dimensional environments, respond to gesture and movement, and integrate with real-world context.</p><p><strong>Design Principles</strong></p><p>Spatial UX requires rethinking fundamental design principles. Navigation, information hierarchy, and user feedback must work in 3D space. Designers must consider depth, perspective, real-world occlusion, and natural human gestures.</p><p><strong>Emerging Technologies</strong></p><p>Meta's Quest Pro, Apple's Vision Pro, and Microsoft's HoloLens 2 are leading the charge. These devices are shifting from niche gaming peripherals to mainstream productivity tools. Companies like Figma and Adobe are already building spatial design tools.</p><p><strong>The Future of Interaction</strong></p><p>Imagine designing documents in three dimensions, collaborating with teammates who appear as holograms, or controlling interfaces with natural hand gestures. This is no longer science fiction—it's the near future of work. Designers who master spatial UX will lead the next wave of digital innovation.</p>`
                 })" style="cursor: pointer;">
                     <div class="post-img" style="background: linear-gradient(135deg, #e8f0fe, #d2e3fc);">🎨</div>
@@ -341,11 +267,6 @@
                         <p class="post-excerpt">As XR headsets hit mainstream adoption, UX designers face an entirely
                             new canvas—one with depth, gesture, and ambient awareness.</p>
                         <div class="post-footer">
-                            <div class="post-author-sm">
-                                <div class="avatar-placeholder"
-                                    style="background: linear-gradient(135deg, #4285F4, #1a73e8);">NP</div>
-                                <div class="post-author-name">Nina Park</div>
-                            </div>
                             <div class="post-date">May 6</div>
                         </div>
                     </div>
@@ -358,10 +279,6 @@
                     tagClass: 'tag-blue',
                     readTime: '9 min',
                     date: 'May 5',
-                    author: 'Kenji Wu',
-                    role: 'Science Editor',
-                    avatar: 'KW',
-                    avatarStyle: 'background: linear-gradient(135deg, #9333ea, #7c3aed);',
                     content: `<p>A new generation of base editors promises therapeutic gene editing with near-zero unintended mutations, potentially clearing FDA approval hurdles.</p><p><strong>The Evolution of CRISPR</strong></p><p>While earlier versions of CRISPR acted like molecular scissors, CRISPR 3.0 functions more like a pencil, rewriting single letters of DNA without severing the double helix. This precision dramatically reduces the risk of dangerous off-target effects.</p><p><strong>Therapeutic Potential</strong></p><p>These ultra-precise editors are currently in trials for treating genetic blindness, sickle cell disease, and high cholesterol. With safety profiles vastly improved, researchers anticipate a surge of FDA approvals for personalized gene therapies by the end of the decade.</p>`
                 })" style="cursor: pointer;">
                     <div class="post-img" style="background: linear-gradient(135deg, #f3e8ff, #e9d5ff);">🔬</div>
@@ -374,11 +291,6 @@
                         <p class="post-excerpt">A new generation of base editors promises therapeutic gene editing with
                             near-zero unintended mutations, potentially clearing FDA approval hurdles.</p>
                         <div class="post-footer">
-                            <div class="post-author-sm">
-                                <div class="avatar-placeholder"
-                                    style="background: linear-gradient(135deg, #9333ea, #7c3aed);">KW</div>
-                                <div class="post-author-name">Kenji Wu</div>
-                            </div>
                             <div class="post-date">May 5</div>
                         </div>
                     </div>
@@ -391,10 +303,6 @@
                     tagClass: 'tag-blue',
                     readTime: '5 min',
                     date: 'May 4',
-                    author: 'Rachel Lee',
-                    role: 'Venture Capital Analyst',
-                    avatar: 'RL',
-                    avatarStyle: 'background: linear-gradient(135deg, #0ea5e9, #0284c7);',
                     content: `<p>Venture capital has quietly pivoted. Climate startups are attracting the same valuations that once defined the cloud-software era.</p><p><strong>A Massive Capital Shift</strong></p><p>In the past 24 months, climate tech funding has surged by over 400%. This is no longer a niche, impact-driven sector; it is seen as the largest economic opportunity since the dawn of the internet. From grid optimization software to novel battery chemistries, venture capital is aggressively funding the green transition.</p><p><strong>The Talent Migration</strong></p><p>It's not just money—it's talent. Top engineers and founders from traditional big tech companies are leaving in droves to tackle the climate crisis. This convergence of capital and top-tier talent is creating a powerful innovation engine that promises to reshape the global economy.</p>`
                 })" style="cursor: pointer;">
                     <div class="post-img" style="background: linear-gradient(135deg, #e0f2fe, #bae6fd);">🚀</div>
@@ -407,11 +315,6 @@
                         <p class="post-excerpt">Venture capital has quietly pivoted. Climate startups are attracting the
                             same valuations that once defined the cloud-software era.</p>
                         <div class="post-footer">
-                            <div class="post-author-sm">
-                                <div class="avatar-placeholder"
-                                    style="background: linear-gradient(135deg, #0ea5e9, #0284c7);">RL</div>
-                                <div class="post-author-name">Rachel Lee</div>
-                            </div>
                             <div class="post-date">May 4</div>
                         </div>
                     </div>
@@ -423,10 +326,6 @@
                     tagClass: 'tag-blue',
                     readTime: '6 min read',
                     date: 'May 3',
-                    author: 'Alex Chen',
-                    role: 'Lead Developer',
-                    avatar: 'AC',
-                    avatarStyle: 'background: linear-gradient(135deg, #1a73e8, #0d47a1);',
                     content: `<p>A major paradigm shift is happening in web development: local-first software. Unlike traditional cloud-centric applications, local-first apps store data primarily on the user\'s device and sync to the cloud in the background.</p><p><strong>Why Local-First?</strong></p><p>Local-first applications offer several profound benefits. First, they are extremely fast because data is accessed directly from local storage. Second, they work seamlessly offline. Third, they give users more control over their data privacy.</p><p><strong>The Technical Challenge</strong></p><p>Building local-first apps requires resolving complex data synchronization conflicts. Technologies like CRDTs (Conflict-free Replicated Data Types) and advanced local databases (like SQLite in the browser via WebAssembly) are making this architecture increasingly accessible.</p><p>As these tools mature, we can expect a new generation of web applications that rival the performance and reliability of native desktop software.</p>`
                 })" style="cursor: pointer;">
                     <div class="post-img" style="background: linear-gradient(135deg, #e8f0fe, #c2e0ff);">💻</div>
@@ -439,11 +338,6 @@
                         <p class="post-excerpt">How local-first architectures and CRDTs are bringing native-like speeds
                             and offline capabilities to the web.</p>
                         <div class="post-footer">
-                            <div class="post-author-sm">
-                                <div class="avatar-placeholder"
-                                    style="background: linear-gradient(135deg, #1a73e8, #0d47a1);">AC</div>
-                                <div class="post-author-name">Alex Chen</div>
-                            </div>
                             <div class="post-date">May 3</div>
                         </div>
                     </div>
@@ -456,10 +350,6 @@
                     tagClass: 'tag-yellow',
                     readTime: '8 min read',
                     date: 'May 2',
-                    author: 'Dr. Elena Rostova',
-                    role: 'Cognitive Psychologist',
-                    avatar: 'ER',
-                    avatarStyle: 'background: linear-gradient(135deg, #f29900, #b06000);',
                     content: `<p>In an era of constant connectivity, our attention has become the most contested commodity. Digital minimalism isn\'t just about screen time limits—it\'s a fundamental rethinking of how we interact with technology to reclaim our cognitive autonomy.</p><p><strong>The Attention Economy</strong></p><p>Modern applications are engineered using principles of operant conditioning. The unpredictable rewards of endless scrolling and notification pings trigger dopamine loops similar to slot machines. This constant cognitive fragmentation leads to increased anxiety and reduced deep-work capacity.</p><p><strong>Reclaiming Focus</strong></p><p>Research shows that intentionally restricting digital inputs can significantly lower baseline cortisol levels. Techniques like scheduled batch-processing of messages, removing algorithmic feeds, and establishing tech-free zones allow the brain\'s default mode network to recover.</p><p>Ultimately, digital minimalism isn\'t anti-technology. It\'s about utilizing technology on our own terms, shifting from passive consumption to intentional utility.</p>`
                 })" style="cursor: pointer;">
                     <div class="post-img" style="background: linear-gradient(135deg, #fff8e1, #ffecb3);">🧠</div>
@@ -472,11 +362,6 @@
                         <p class="post-excerpt">Understanding how the attention economy affects our cognitive autonomy,
                             and science-backed strategies to reclaim focus.</p>
                         <div class="post-footer">
-                            <div class="post-author-sm">
-                                <div class="avatar-placeholder"
-                                    style="background: linear-gradient(135deg, #f29900, #b06000);">ER</div>
-                                <div class="post-author-name">Dr. Elena Rostova</div>
-                            </div>
                             <div class="post-date">May 2</div>
                         </div>
                     </div>
@@ -489,10 +374,6 @@
                     tagClass: 'tag-red',
                     readTime: '7 min read',
                     date: 'May 1',
-                    author: 'Sarah Jenkins',
-                    role: 'Health Science Journalist',
-                    avatar: 'SJ',
-                    avatarStyle: 'background: linear-gradient(135deg, #ea4335, #b31412);',
                     content: `<p>The human gut contains trillions of microorganisms. For decades, we viewed them simply as digestive aids. Today, researchers are uncovering a profound connection between these microbes and our neurological well-being.</p><p><strong>The Gut-Brain Axis</strong></p><p>The gut and the brain communicate bidirectionally via the vagus nerve and biochemical signaling. Remarkably, the gut microbiota produces about 90% of the body\'s serotonin, a crucial neurotransmitter regulating mood, sleep, and emotion.</p><p><strong>Psychobiotics</strong></p><p>A new frontier in psychiatry involves \'psychobiotics\'—targeted interventions using specific strains of bacteria to treat mental health conditions like depression and anxiety. Early clinical trials are showing promising results that could revolutionize psychiatric care.</p><p><strong>Actionable Steps</strong></p><p>A diet rich in diverse, plant-based fibers, fermented foods, and limited processed sugars is the most effective way to cultivate a resilient microbiome. Nurturing your gut might just be the most impactful step you can take for your mental health.</p>`
                 })" style="cursor: pointer;">
                     <div class="post-img" style="background: linear-gradient(135deg, #fce8e6, #f8bbd0);">❤️</div>
@@ -505,11 +386,6 @@
                         <p class="post-excerpt">Emerging research reveals the profound bidirectional communication
                             between our gut bacteria and neurological well-being.</p>
                         <div class="post-footer">
-                            <div class="post-author-sm">
-                                <div class="avatar-placeholder"
-                                    style="background: linear-gradient(135deg, #ea4335, #b31412);">SJ</div>
-                                <div class="post-author-name">Sarah Jenkins</div>
-                            </div>
                             <div class="post-date">May 1</div>
                         </div>
                     </div>
@@ -529,7 +405,7 @@
             <!-- Newsletter -->
             <div class="widget newsletter-widget">
                 <div class="widget-title">📬 Stay in the Loop</div>
-                <p>Get the most insightful articles delivered to your inbox every Tuesday and Friday.</p>
+                <p>Get the most insightful articles delivered to your inbox whenever I posted.</p>
                 <input type="email" placeholder="your@email.com">
                 <button class="btn-subscribe" onclick="handleSubscribe(this)">Subscribe Free →</button>
             </div>
@@ -572,7 +448,7 @@
         <div class="footer-inner">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="#" class="logo" style="text-decoration:none;">
+                    <a href="index.html" class="logo" style="text-decoration:none;">
                         <svg width="32" height="32" viewBox="0 0 36 36" fill="none">
                             <circle cx="12" cy="12" r="9" fill="#4285F4" opacity="0.85" />
                             <circle cx="24" cy="12" r="9" fill="#34A853" opacity="0.85" />
@@ -611,12 +487,11 @@
                 <div>
                     <div class="footer-col-title">Company</div>
                     <ul class="footer-links">
-                        <li><a href="#">About InsightHub</a></li>
-                        <li><a href="#">Our Writers</a></li>
+                        <li><a href="about.html">About Me</a></li>
                         <li><a href="#">Advertise</a></li>
                         <li><a href="#">Careers</a></li>
                         <li><a href="#">Press Kit</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
 
@@ -661,15 +536,6 @@
             <div class="blog-modal-body" id="modalBody">
                 <!-- Full blog content will be inserted here -->
             </div>
-            <div class="blog-modal-footer">
-                <div class="blog-modal-author">
-                    <div id="modalAuthorAvatar" class="avatar-placeholder">AU</div>
-                    <div>
-                        <div id="modalAuthorName" class="author-name">Author Name</div>
-                        <div id="modalAuthorRole" class="author-role">Author Role</div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -680,6 +546,100 @@
             <polyline points="18 15 12 9 6 15" />
         </svg>
     </button>
+
+    <!-- Auth Modal -->
+    <div class="auth-modal" id="authModal">
+        <div class="auth-modal-content">
+            <button class="auth-modal-close" onclick="closeAuthModal()">✕</button>
+            
+            <div class="auth-tabs">
+                <button class="auth-tab active" id="tabLogin" onclick="switchAuthTab('login')">Sign In</button>
+                <button class="auth-tab" id="tabSignup" onclick="switchAuthTab('signup')">Create Account</button>
+            </div>
+            
+            <!-- Login Form -->
+            <form id="loginForm" class="auth-form active" onsubmit="handleAuthSubmit(event, 'login')">
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <div class="input-wrap">
+                        <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-10 11M22 2l-7 20-4-9-9-4Z"/></svg>
+                        <input type="email" id="loginEmail" placeholder="name@example.com" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="form-label-row">
+                        <label for="loginPassword">Password</label>
+                        <a href="#" class="form-forgot-link" onclick="alert('Password reset link sent!')">Forgot password?</a>
+                    </div>
+                    <div class="input-wrap">
+                        <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <input type="password" id="loginPassword" class="password-input" placeholder="Enter your password" required>
+                        <button type="button" class="password-toggle" onclick="togglePasswordVisibility('loginPassword', this)">
+                            <svg class="eye-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0z"/><circle cx="12" cy="12" r="3"/></svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-auth-submit">
+                    Sign In
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+            </form>
+            
+            <!-- Signup Form -->
+            <form id="signupForm" class="auth-form" onsubmit="handleAuthSubmit(event, 'signup')">
+                <div class="form-group">
+                    <label for="signupName">Full Name</label>
+                    <div class="input-wrap">
+                        <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        <input type="text" id="signupName" placeholder="Ahmad Butt" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="signupEmail">Email Address</label>
+                    <div class="input-wrap">
+                        <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-10 11M22 2l-7 20-4-9-9-4Z"/></svg>
+                        <input type="email" id="signupEmail" placeholder="name@example.com" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <div class="input-wrap">
+                        <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <input type="password" id="signupPassword" class="password-input" placeholder="Create a strong password" required>
+                        <button type="button" class="password-toggle" onclick="togglePasswordVisibility('signupPassword', this)">
+                            <svg class="eye-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0z"/><circle cx="12" cy="12" r="3"/></svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="form-checkbox">
+                    <input type="checkbox" id="signupTerms" required>
+                    <label for="signupTerms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-auth-submit">
+                    Create Account
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+            </form>
+            
+            <!-- Success Message Card -->
+            <div id="authSuccess" class="auth-success-card">
+                <div class="success-checkmark-wrapper">
+                    <svg class="success-checkmark" viewBox="0 0 52 52">
+                        <circle class="success-checkmark-circle" cx="26" cy="26" r="25" fill="none" />
+                        <path class="success-checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                    </svg>
+                </div>
+                <h3 class="auth-success-title" id="authSuccessTitle">Welcome Back!</h3>
+                <p class="auth-success-desc" id="authSuccessDesc">You have successfully signed in to InsightHub.</p>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 
